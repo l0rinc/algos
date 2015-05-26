@@ -1,9 +1,9 @@
-package quickfind
+package union_find
 
 import scala.collection._
 import scala.language.postfixOps
 
-class QuickFindHash[T] extends QuickFindBase[T] {
+class UnionFindHash[T] extends UnionFindBase[T] {
   private val associations = mutable.HashMap[T, T]()
 
   override def groups = reverse(associations)

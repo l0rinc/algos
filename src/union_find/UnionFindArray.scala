@@ -1,8 +1,8 @@
-package quickfind
+package union_find
 
 import scala.language.postfixOps
 
-class QuickFindArray(private val dim: Int) extends QuickFindBase[Int] {
+class UnionFindArray(private val dim: Int) extends UnionFindBase[Int] {
   val associations: Array[Int] = (0 to dim) toArray
 
   override def groups = reverse(associations.zipWithIndex map (_.swap) toMap)

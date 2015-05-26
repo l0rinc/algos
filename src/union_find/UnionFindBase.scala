@@ -1,10 +1,10 @@
-package quickfind
+package union_find
 
 import scala.collection._
 
 /** http://www.cs.princeton.edu/courses/archive/fall12/cos226/lectures/00Intro+15UnionFind.pdf */
 
-trait QuickFindBase[T] {
+trait UnionFindBase[T] {
   def connect(elems: T*) = {
     val parent = root(elems(0))
     elems foreach (e ⇒ put(root(e), parent))
@@ -17,6 +17,8 @@ trait QuickFindBase[T] {
   }
 
   def areConnected(elems: T*) = (elems map root).toSet.size == 1
+
+  def count = groups.size
 
   protected def reverse(map: Map[T, T]) = map groupBy (entry ⇒ root(entry._2)) mapValues (_.keys)
 
