@@ -8,7 +8,7 @@ class UnionFindHash[T] extends UnionFindBase[T] {
 
   override def groups = reverse(associations)
 
-  override protected def get(value: T) = associations getOrElse (value, value)
+  override protected def get(value: T) = associations get value
   override protected def put(value: T, parent: T) = {
     associations(value) = parent
     parent

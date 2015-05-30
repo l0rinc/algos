@@ -7,23 +7,22 @@ object Main extends App {
   private val connections = parse("8-0 9-4 3-7 1-9 2 5-4-7")
 
   Array(new UnionFindHash[Int],
-        new UnionFindArray(9)) foreach {app ⇒
+        new UnionFindArray(10)) foreach { app ⇒
     println(app.getClass getSimpleName)
 
-    connections foreach { elements ⇒
-      println(s"Connecting $elements")
-      app connect (elements: _*)
+    for (elements ← connections) {
+      println(s"Connecting ${ elements }")
+      app connect (elements.head, elements.tail: _*)
     }
 
-    println(s"${app.count} components found")
-    app.groups foreach { case (group, elements) ⇒
+    println(s"${ app.count } components found")
+    for ((group, elements) ← app.groups)
       println(elements.toList.sorted mkString ("{", ", ", "}"))
-    }
 
-    assert(app.areConnected(8, 0))
-    assert(app.areConnected(3, 1, 4, 1, 5, 9))
-    assert(app.areConnected(7))
-    assert(!app.areConnected(8, 0, 1))
-    assert(!app.areConnected(100, 2))
+    assert(app.connected(8, 0))
+    assert(app.connected(3, 1, 4, 1, 5, 9))
+    assert(app.connected(7, 7))
+    assert(!app.connected(8, 0, 1))
+    assert(!app.connected(100, 2))
   }
 }
