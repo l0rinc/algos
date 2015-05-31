@@ -5,7 +5,7 @@ import scala.collection._
 /** http://www.cs.princeton.edu/courses/archive/fall12/cos226/lectures/00Intro+15UnionFind.pdf */
 
 trait UnionFindBase[@specialized(Int) T] {
-  def connect(first: T, rest: T*) = {
+  def connect(first: T, rest: T*): Unit = {
     val parent = root(first)
     for (value ← rest)
       put(root(value), parent)

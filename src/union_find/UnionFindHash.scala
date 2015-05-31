@@ -3,7 +3,7 @@ package union_find
 import scala.collection._
 import scala.language.postfixOps
 
-class UnionFindHash[T] extends UnionFindBase[T] {
+class UnionFindHash[@specialized(Int) T] extends UnionFindBase[T] {
   private val associations = mutable.HashMap[T, T]()
 
   override def groups = reverse(associations)
