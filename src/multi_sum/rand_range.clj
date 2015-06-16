@@ -7,8 +7,8 @@
   (let [half (quot range 2)]
     (rand-range (- half) half)))
 
-(defn distinct-rand-ints [elems-count elems-range]
-  (to-array (last
-              (take-while #(<= (count %) elems-count)
-                          (iterate #(conj % (rand-symmetric-range elems-range))
-                                   #{})))))
+(defn distinct-rand-ints [count range]
+  (to-array
+    (take count
+          (distinct
+            (repeatedly #(rand-symmetric-range range))))))
