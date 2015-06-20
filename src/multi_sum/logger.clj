@@ -1,5 +1,6 @@
 (ns multi_sum.logger
-  (:import (java.util.concurrent TimeUnit)))
+  (:import (java.util.concurrent TimeUnit))
+  (:use [clojure.string :only (replace-first)]))
 
 (defn current-nanos []
   (System/nanoTime))
@@ -8,12 +9,16 @@
   (.toMillis TimeUnit/NANOSECONDS
              (- (current-nanos) start-time)))
 
+(defn method-name [method]
+  (replace-first (class method)
+                 #"^.+?([^$]+)$" "$1"))
+
 (defn log [method params]
   (let [start-time (current-nanos)
         result (method params)
         count (count result)                                ; needed because of lazy traversal
         duration (elapsed-time start-time)]
-    (println [(class method)                                ; TODO too much information
-              duration "ms"
+    (println [(method-name method)
+              (str duration "ms")
               count
               result])))
