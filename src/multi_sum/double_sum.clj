@@ -1,7 +1,17 @@
-(ns multi_sum.double_sum
-  (:import (java.util Collections)))
+(ns multi_sum.double_sum)
 
 ; Given distinct integers, how many doubles sum to exactly zero?
+
+(defn binary-search
+  ([elems elem] (binary-search elems elem 0 (dec (count elems))))
+  ([elems elem start end]
+   (if (>= end start)
+     (let [mid (+ start (bit-shift-right (- end start) 1)),
+           mid-elem (nth elems mid)]
+       (cond (< elem mid-elem) (recur elems elem start (dec mid))
+             (= elem mid-elem) mid
+             (> elem mid-elem) (recur elems elem (inc mid) end)))
+     -1)))
 
 (defn double-sum-squared [elems]
   (let [count (count elems)]
@@ -16,7 +26,7 @@
   (let [sorted-elems (sort elems)]
     (for [i' (range 0 (count elems))
           :let [i (nth elems i')]
-          :when (< i' (Collections/binarySearch sorted-elems (- i)))] ; TODO custom Clojure binary search?
+          :when (< i' (binary-search sorted-elems (- i)))]
       [i (- i)])))
 
 (defn double-sum-linear
