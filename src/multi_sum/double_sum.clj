@@ -2,6 +2,17 @@
 
 ; Given distinct integers, how many doubles sum to exactly zero?
 
+(defn double-sum-squared
+  ([elems] (double-sum-squared elems 0))
+  ([elems sum]
+   (let [count (count elems)]
+     (for [i' (range 0 count)
+           j' (range (inc i') count)
+           :let [i (nth elems i')
+                 j (nth elems j')]
+           :when (= sum (+ i j))]
+       [i j]))))
+
 (defn binary-search
   ([elems elem] (binary-search elems elem 0 (dec (count elems))))
   ([elems elem start end]
@@ -13,31 +24,26 @@
              (> elem mid-elem) (recur elems elem (inc mid) end)))
      -1)))
 
-(defn double-sum-squared [elems]
-  (let [count (count elems)]
-    (for [i' (range 0 count)
-          j' (range (inc i') count)
-          :let [i (nth elems i')
-                j (nth elems j')]
-          :when (zero? (+ i j))]
-      [i j])))
-
-(defn double-sum-linearithmic [elems]
-  (let [sorted-elems (sort elems)]
-    (for [i' (range 0 (count elems))
-          :let [i (nth elems i')]
-          :when (< i' (binary-search sorted-elems (- i)))]
-      [i (- i)])))
+(defn double-sum-linearithmic
+  ([elems] (double-sum-linearithmic elems 0))
+  ([elems sum]
+   (let [sorted-elems (sort elems)]
+     (for [i' (range 0 (count elems))
+           :let [i (nth elems i')]
+           :when (< i' (binary-search sorted-elems (- sum i)))]
+       [i (- i)]))))
 
 (defn double-sum-linear
-  ([elems] (double-sum-linear elems #{} []))
-  ([elems visited results]
+  ([elems] (double-sum-linear elems 0))
+  ([elems sum] (double-sum-linear elems sum #{} []))
+  ([elems sum visited results]
    (if (seq elems)
      (let [elem (first elems)
-           inverse (- elem)]
+           complement (- sum elem)]
        (recur (rest elems)
+              sum
               (conj visited elem)
-              (if (contains? visited inverse)
-                (conj results [elem inverse])
+              (if (contains? visited complement)
+                (conj results [elem complement])
                 results)))
      results)))
