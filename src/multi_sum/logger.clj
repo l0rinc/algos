@@ -13,9 +13,9 @@
   (replace-first (class method)
                  #"^.+?([^$]+)$" "$1"))
 
-(defn log [method params]
+(defn log [method & params]
   (let [start-time (current-nanos)
-        result (method params)
+        result (apply method params)
         count (count result)                                ; needed because of lazy traversal
         duration (elapsed-time start-time)]
     (println [(method-name method)
