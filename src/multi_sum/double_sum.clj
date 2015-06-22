@@ -27,10 +27,10 @@
 (defn double-sum-linearithmic
   ([elems] (double-sum-linearithmic elems 0))
   ([elems sum]
-   (let [sorted-elems (sort elems)]
+   (let [elems (sort elems)]
      (for [i' (range 0 (count elems))
            :let [i (nth elems i')]
-           :when (< i' (binary-search sorted-elems (- sum i)))]
+           :when (< i' (binary-search elems (- sum i)))]
        [i (- i)]))))
 
 (defn double-sum-linear
