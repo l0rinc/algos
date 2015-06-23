@@ -5,7 +5,7 @@
   (:use multi_sum.logger))
 
 (def debug false)
-(def elems-count 300)
+(def elems-count 200)
 (def elems-range 500)
 (assert (<= elems-count elems-range))
 
@@ -20,4 +20,9 @@
 (log double-sum-linearithmic elems)
 (log double-sum-linear elems)
 
+(println)
+
+(log triple-sum-cubic-reference elems)
 (log triple-sum-cubic elems)
+(log triple-sum-squared-linear elems)
+(log triple-sum-squared elems)
