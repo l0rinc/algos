@@ -35,7 +35,7 @@
 
 (defn double-sum-linear
   ([elems] (double-sum-linear elems 0))
-  ([elems sum] (double-sum-linear elems sum #{} []))
+  ([elems sum] (double-sum-linear elems sum #{} '()))
   ([elems sum visited results]
    (if (seq elems)
      (let [elem (first elems)
