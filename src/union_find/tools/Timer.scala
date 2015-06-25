@@ -1,4 +1,4 @@
-package tools
+package union_find.tools
 
 object Timer {
   def run[T](closure: ⇒ T): T = {

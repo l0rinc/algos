@@ -1,6 +1,6 @@
 package union_find
 
-import tools.{Random, Timer}
+import union_find.tools.{Random, Timer}
 import union_find.percolation.Percolation
 
 import scala.language.postfixOps

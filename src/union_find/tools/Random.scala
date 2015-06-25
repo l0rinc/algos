@@ -1,4 +1,4 @@
-package tools
+package union_find.tools
 
 import scala.annotation.tailrec
 
