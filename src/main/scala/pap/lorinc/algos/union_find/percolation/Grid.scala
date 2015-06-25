@@ -1,4 +1,4 @@
-package union_find.percolation
+package pap.lorinc.algos.union_find.percolation
 
 import java.lang.Math._
 
@@ -42,7 +42,7 @@ abstract class Grid(val dim: Int) {
       }
 
       if (marked((j, i))) print("x")
-      else print(".")
+      else print("")
     }
   }
 }

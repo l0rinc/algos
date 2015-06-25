@@ -1,4 +1,4 @@
-package union_find.tools
+package pap.lorinc.algos.union_find.tools
 
 object Timer {
   def run[T](closure: ⇒ T): T = {

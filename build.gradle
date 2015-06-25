@@ -1,0 +1,34 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'http://clojars.org/repo' }
+    }
+
+    dependencies { classpath group: 'clojuresque', name: 'clojuresque', version: '1.7.0' }
+}
+
+group 'pap.lorinc.algos'
+version '1.0.0'
+
+apply plugin: 'clojure'
+apply plugin: 'scala'
+apply plugin: 'groovy'
+apply plugin: 'java'
+
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile([group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.3'],
+            [group: 'org.clojure', name: 'clojure', version: '1.7.0-RC2'],
+            [group: 'org.scala-lang', name: 'scala-library', version: '2.11.7']
+    )
+
+    testCompile([group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.4']
+    )
+}

@@ -1,4 +1,4 @@
-package union_find.tools
+package pap.lorinc.algos.union_find.tools
 
 import scala.annotation.tailrec
 

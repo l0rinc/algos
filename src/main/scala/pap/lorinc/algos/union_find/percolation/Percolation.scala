@@ -1,6 +1,6 @@
-package union_find.percolation
+package pap.lorinc.algos.union_find.percolation
 
-import union_find.UnionFindBase
+import pap.lorinc.algos.union_find.UnionFindBase
 
 import scala.language.postfixOps
 
