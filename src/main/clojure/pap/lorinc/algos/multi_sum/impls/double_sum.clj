@@ -1,4 +1,4 @@
-(ns multi_sum.double_sum)
+(ns pap.lorinc.algos.multi_sum.impls.double_sum)
 
 ; Given distinct integers, how many doubles sum to exactly zero?
 
@@ -13,11 +13,14 @@
            :when (= sum (+ i j))]
        [i j]))))
 
+(defn avg [first second]
+  (+ first (bit-shift-right (- second first) 1)))
+
 (defn binary-search
   ([elems elem] (binary-search elems elem 0 (dec (count elems))))
   ([elems elem start end]
    (if (>= end start)
-     (let [mid (+ start (bit-shift-right (- end start) 1)),
+     (let [mid (avg start end),
            mid-elem (nth elems mid)]
        (cond (< elem mid-elem) (recur elems elem start (dec mid))
              (= elem mid-elem) mid
