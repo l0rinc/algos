@@ -1,4 +1,6 @@
-package pap.lorinc.algos.union_find
+package pap.lorinc.algos.union_find.impls
+
+import pap.lorinc.algos.union_find.UnionFindBase
 
 import scala.language.postfixOps
 

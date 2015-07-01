@@ -1,4 +1,4 @@
-(ns multi_sum.logger
+(ns pap.lorinc.algos.multi_sum.helpers.logger
   (:import (java.util.concurrent TimeUnit))
   (:use [clojure.string :only (replace-first)]))
 

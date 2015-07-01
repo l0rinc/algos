@@ -1,5 +1,5 @@
-(ns multi_sum.triple_sum
-  (:use multi_sum.double_sum))
+(ns pap.lorinc.algos.multi_sum.impls.triple_sum
+  (:use pap.lorinc.algos.multi_sum.impls.double_sum))
 
 ; Given distinct integers, how many triples sum to exactly zero?
 

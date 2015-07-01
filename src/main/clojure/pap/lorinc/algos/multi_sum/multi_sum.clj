@@ -1,8 +1,8 @@
-(ns multi_sum.multi_sum
-  (:use multi_sum.rand_range)
-  (:use multi_sum.double_sum)
-  (:use multi_sum.triple_sum)
-  (:use multi_sum.logger))
+(ns pap.lorinc.algos.multi_sum.multi_sum
+  (:use pap.lorinc.algos.multi_sum.helpers.rand_range)
+  (:use pap.lorinc.algos.multi_sum.helpers.logger)
+  (:use pap.lorinc.algos.multi_sum.impls.double_sum)
+  (:use pap.lorinc.algos.multi_sum.impls.triple_sum))
 
 (def debug false)
 (def elems-count 200)

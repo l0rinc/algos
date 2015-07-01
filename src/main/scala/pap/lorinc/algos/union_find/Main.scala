@@ -1,7 +1,8 @@
 package pap.lorinc.algos.union_find
 
-import pap.lorinc.algos.union_find.tools.{Random, Timer}
+import pap.lorinc.algos.union_find.impls.{UnionFindArray, UnionFindHash}
 import pap.lorinc.algos.union_find.percolation.Percolation
+import pap.lorinc.algos.union_find.tools.{Random, Timer}
 
 import scala.language.postfixOps
 

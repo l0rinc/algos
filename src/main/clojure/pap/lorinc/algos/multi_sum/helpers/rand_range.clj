@@ -1,4 +1,4 @@
-(ns multi_sum.rand_range)
+(ns pap.lorinc.algos.multi_sum.helpers.rand_range)
 
 (defn rand-range [min, max]
   (+ min (rand-int (- max min))))
