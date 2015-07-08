@@ -10,5 +10,6 @@ import pap.lorinc.algos.union_find.tools.Random
         def referenceSortedElems = elems.sort(false).asImmutable()
 
         assert Insertion.sort(elems) == referenceSortedElems
+        assert Selection.sort(elems) == referenceSortedElems
     }
 }
