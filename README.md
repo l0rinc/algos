@@ -1,4 +1,4 @@
-Toy project, to experiment with `algorithms` and `functional programming` paradigms via `Scala`/`Clojure`.
+Toy project, to experiment with `algorithms` and `functional programming` paradigms.
 
 It's based on the lectures for [Coursera's Algorithms, Part I](https://www.coursera.org/course/algs4partI).
 Since the course only accepts `Java` homeworks, these sources can't easily be reused - they're not meant to be.
