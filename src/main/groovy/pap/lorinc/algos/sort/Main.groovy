@@ -11,5 +11,6 @@ import pap.lorinc.algos.union_find.tools.Random
 
         assert Insertion.sort(elems) == referenceSortedElems
         assert Selection.sort(elems) == referenceSortedElems
+        assert Merge.sort(elems) == referenceSortedElems
     }
 }
