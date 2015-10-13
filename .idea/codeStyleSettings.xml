@@ -6,6 +6,9 @@
         <GroovyCodeStyleSettings>
           <option name="USE_FLYING_GEESE_BRACES" value="true" />
         </GroovyCodeStyleSettings>
+        <JavaCodeStyleSettings>
+          <option name="ALIGN_MULTILINE_ANNOTATION_PARAMETERS" value="true" />
+        </JavaCodeStyleSettings>
         <XML>
           <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
         </XML>
@@ -27,6 +30,19 @@
         </codeStyleSettings>
         <codeStyleSettings language="JAVA">
           <option name="KEEP_BLANK_LINES_BEFORE_RBRACE" value="0" />
+          <option name="ALIGN_MULTILINE_CHAINED_METHODS" value="true" />
+          <option name="ALIGN_MULTILINE_PARAMETERS_IN_CALLS" value="true" />
+          <option name="ALIGN_MULTILINE_BINARY_OPERATION" value="true" />
+          <option name="ALIGN_MULTILINE_ASSIGNMENT" value="true" />
+          <option name="ALIGN_MULTILINE_TERNARY_OPERATION" value="true" />
+          <option name="ALIGN_MULTILINE_THROWS_LIST" value="true" />
+          <option name="ALIGN_MULTILINE_EXTENDS_LIST" value="true" />
+          <option name="ALIGN_MULTILINE_METHOD_BRACKETS" value="true" />
+          <option name="ALIGN_MULTILINE_ARRAY_INITIALIZER_EXPRESSION" value="true" />
+          <option name="PREFER_PARAMETERS_WRAP" value="true" />
+          <indentOptions>
+            <option name="USE_RELATIVE_INDENTS" value="true" />
+          </indentOptions>
         </codeStyleSettings>
         <codeStyleSettings language="Scala">
           <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="1" />
