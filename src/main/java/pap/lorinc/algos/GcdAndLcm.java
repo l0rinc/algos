@@ -6,7 +6,7 @@ import static java.lang.String.format;
 import static java.lang.System.out;
 import static pap.lorinc.algos.helpers.Numbers.assertDivides;
 
-public class Gcd {
+public class GcdAndLcm {
     private static final Random RAND = new Random();
     private static final int MAGNITUDE = 100;
 
