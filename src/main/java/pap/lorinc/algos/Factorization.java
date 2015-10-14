@@ -11,8 +11,8 @@ import static java.lang.String.format;
 import static java.lang.System.out;
 import static java.util.Collections.singletonMap;
 import static java.util.stream.Collectors.joining;
-import static pap.lorinc.algos.NumberUtils.divides;
-import static pap.lorinc.algos.StreamHelper.stream;
+import static pap.lorinc.algos.helpers.Numbers.divides;
+import static pap.lorinc.algos.helpers.Streams.stream;
 
 public class Factorization {
     private static final Random RAND = new Random();

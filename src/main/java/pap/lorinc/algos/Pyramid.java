@@ -3,6 +3,7 @@ package pap.lorinc.algos;
 import java.util.function.Function;
 
 import static java.lang.System.out;
+import static pap.lorinc.algos.helpers.Strings.repeat;
 
 /**
  * http://javaconceptoftheday.com/how-to-create-pyramid-of-numbers-in-java
@@ -77,15 +78,6 @@ public class Pyramid {
             result.append(repetition.apply(i));
         for (; i >= 0; i--)
             result.append(repetition.apply(i));
-
-        return result.toString();
-    }
-
-    private static String repeat(String repetition, int count) {
-        StringBuilder result = new StringBuilder(repetition.length() * count);
-
-        for (int j = 0; j <= count; j++)
-            result.append(repetition);
 
         return result.toString();
     }

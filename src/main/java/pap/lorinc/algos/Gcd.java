@@ -4,7 +4,7 @@ import java.util.Random;
 
 import static java.lang.String.format;
 import static java.lang.System.out;
-import static pap.lorinc.algos.NumberUtils.assertDivides;
+import static pap.lorinc.algos.helpers.Numbers.assertDivides;
 
 public class Gcd {
     private static final Random RAND = new Random();
