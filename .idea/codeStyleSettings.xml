@@ -3,10 +3,12 @@
   <component name="ProjectCodeStyleSettingsManager">
     <option name="PER_PROJECT_SETTINGS">
       <value>
+        <option name="FORMATTER_TAGS_ENABLED" value="true" />
         <GroovyCodeStyleSettings>
           <option name="USE_FLYING_GEESE_BRACES" value="true" />
         </GroovyCodeStyleSettings>
         <JavaCodeStyleSettings>
+          <option name="ANNOTATION_PARAMETER_WRAP" value="1" />
           <option name="ALIGN_MULTILINE_ANNOTATION_PARAMETERS" value="true" />
         </JavaCodeStyleSettings>
         <XML>
@@ -40,6 +42,11 @@
           <option name="ALIGN_MULTILINE_METHOD_BRACKETS" value="true" />
           <option name="ALIGN_MULTILINE_ARRAY_INITIALIZER_EXPRESSION" value="true" />
           <option name="PREFER_PARAMETERS_WRAP" value="true" />
+          <option name="METHOD_ANNOTATION_WRAP" value="1" />
+          <option name="CLASS_ANNOTATION_WRAP" value="1" />
+          <option name="FIELD_ANNOTATION_WRAP" value="1" />
+          <option name="PARAMETER_ANNOTATION_WRAP" value="1" />
+          <option name="VARIABLE_ANNOTATION_WRAP" value="1" />
           <indentOptions>
             <option name="USE_RELATIVE_INDENTS" value="true" />
           </indentOptions>
