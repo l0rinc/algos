@@ -33,7 +33,7 @@ public class TriangularCollection<T> implements Iterable<T> {
     }
 
     private int toSparseSize(int fullSize) {
-        return fullSize * (fullSize - 1) >> 1;
+        return ((fullSize - 1) * fullSize) / 2;
     }
 
     private void fillSparseMatrix(T[][] fullMatrix) {
@@ -44,16 +44,16 @@ public class TriangularCollection<T> implements Iterable<T> {
 
     /**
      * <pre>{@code
-     * fs = full matrix size
-     * ss = sparse matrix size
+     * fs = full matrix size = √(full matrix element count)
+     * ss = sparse matrix element count
      *
-     * fs * (fs - 1) / 2 = ss
+     * (fs - 1) * fs / 2 = ss
      * fs ^ 2 - fs - 2 * ss = 0
      * fs = (1 + sqrt(1 + 8 * ss)) / 2
      * }</pre>
      */
     public int size() {
-        return (1 + (int) sqrt(1 + (sparseMatrix.length << 3))) >> 1;
+        return (1 + (int) sqrt(1 + (sparseMatrix.length * 8))) / 2;
     }
 
     @SuppressWarnings("unchecked")
