@@ -1,40 +1,32 @@
 package pap.lorinc.algos;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Random;
 import java.util.TreeMap;
 
-import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 import static java.lang.String.format;
-import static java.lang.System.out;
 import static java.util.Collections.singletonMap;
 import static java.util.stream.Collectors.joining;
-import static pap.lorinc.algos.helpers.Numbers.divides;
+import static java.util.stream.Collectors.toList;
+import static pap.lorinc.algos.Factorization.getFactors;
+import static pap.lorinc.algos.helpers.Numbers.canDivide;
+import static pap.lorinc.algos.helpers.Numbers.pow;
 import static pap.lorinc.algos.helpers.Streams.stream;
 
-public class Factorization {
-    private static final Random RAND = new Random();
-    private static final long MAGNITUDE = 1000;
+public final class Factorization {
+    private Factorization() {}
 
-    public static void main(String... args) {
-        long num = RAND.nextLong() % MAGNITUDE;
-        out.println(format("The factors of %d are %s", num,
-                           stream(getFactors(num))
-                                   .map(Factorization::formatFactor)
-                                   .collect(joining(" x "))));
-    }
-
-    private static Map<Long, Long> getFactors(long num) {
+    public static Map<Long, Byte> getFactors(long num) throws IllegalStateException {
         if (num < 0) throw new IllegalStateException("Negative numbers not supported!");
-        else if (num <= 3) return singletonMap(num, 1L);
+        else if (num <= 3) return singletonMap(num, (byte) 1);
 
-        Map<Long, Long> results = new TreeMap<>();
+        Map<Long, Byte> results = new TreeMap<>();
 
         long leftover = num;
         for (long i = 2, end = (long) sqrt(num); i <= end; i++)
-            while (divides(leftover, i)) {
+            while (canDivide(leftover, i)) {
                 addFactor(results, i);
                 leftover /= i;
             }
@@ -42,25 +34,55 @@ public class Factorization {
         if (leftover > 1)
             addFactor(results, leftover);
 
-        return validate(results, num);
+        return results;
     }
 
-    private static void addFactor(Map<Long, Long> factors, long divisor) {
-        factors.put(divisor, factors.getOrDefault(divisor, 0L) + 1);
+    private static void addFactor(Map<Long, Byte> factors, long divisor) {
+        factors.put(divisor, (byte) (factors.getOrDefault(divisor, (byte) 0) + 1));
+    }
+}
+
+final class FactorizationValidation {
+    private FactorizationValidation() {}
+
+    public static Map<Long, Byte> validate(Map<Long, Byte> results, long originalNumber) throws IllegalStateException {
+        assertPrimeFactors(results);
+        assertProductEqualsOriginal(results, originalNumber);
+        return results;
     }
 
-    private static String formatFactor(Entry<Long, Long> entry) {
-        Long factor = entry.getKey(), cardinality = entry.getValue();
-        return (cardinality == 1) ? factor.toString()
-                                  : format("%d^%d", factor, cardinality);
+    private static void assertPrimeFactors(Map<Long, Byte> results) {
+        List<Long> composites = stream(results).map(Entry::getKey)
+                                               .filter(FactorizationValidation::isComposite)
+                                               .collect(toList());
+        if (composites.size() > 0)
+            throw new IllegalStateException(format("Not all factors are prime: %s", composites.toString()));
     }
 
-    private static Map<Long, Long> validate(Map<Long, Long> results, long originalNumber) {
-        long product = stream(results).mapToLong(e -> (long) pow(e.getKey(), e.getValue()))
+    private static boolean isComposite(long number) {
+        return getFactors(number).size() != 1;
+    }
+
+    private static void assertProductEqualsOriginal(Map<Long, Byte> results, long originalNumber) {
+        long product = stream(results).mapToLong(e -> pow(e.getKey(), e.getValue()))
                                       .reduce(1, (a, b) -> a * b);
         if (product != originalNumber)
             throw new IllegalStateException(format("%s != %s", product, originalNumber));
-        else
-            return results;
+    }
+}
+
+final class FactorizationFormatter {
+    private FactorizationFormatter() {}
+
+    public static String formatFactors(Map<Long, Byte> factors) {
+        return stream(factors).map(FactorizationFormatter::formatFactor)
+                              .collect(joining(" x "));
+    }
+
+    private static String formatFactor(Entry<Long, Byte> entry) {
+        Long factor = entry.getKey();
+        Byte cardinality = entry.getValue();
+        return (cardinality == 1) ? factor.toString()
+                                  : format("%d^%d", factor, cardinality);
     }
 }
