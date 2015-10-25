@@ -17,19 +17,22 @@ apply plugin: 'java'
 
 apply plugin: 'idea'
 
-sourceCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenCentral()
     maven { url 'http://clojars.org/repo' }
+    jcenter()
 }
 
 dependencies {
-    compile([group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.5'],
-            [group: 'org.clojure', name: 'clojure', version: '1.7.0-RC2'],
-            [group: 'org.scala-lang', name: 'scala-library', version: '2.11.7']
+    compile([group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.5', force: true],
+            [group: 'org.clojure', name: 'clojure', version: '1.7.0'],
+            [group: 'org.scala-lang', name: 'scala-library', version: '2.11.7'],
+            [group: 'org.jetbrains', name: 'annotations', version: '15.0']
     )
 
-    testCompile([group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.4']
+    testCompile([group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.4'],
+                [group: 'com.nagternal', name: 'spock-genesis', version: '0.3.0']
     )
 }
