@@ -28,7 +28,7 @@ import spock.lang.Unroll
     }
     /*@formatter:on*/
 
-    static void equals(sparseMatrix, fullMatrix) {
+    static void equals(TriangularCollection sparseMatrix, Object[][] fullMatrix) {
         assert sparseMatrix.size() == fullMatrix.length
         assert sparseMatrix.flatten() == fullMatrix.flatten()
     }
@@ -38,7 +38,7 @@ import spock.lang.Unroll
 
         def current = 0;
         ([0..<size] * 2).combinations()
-                        .findAll { i, j -> i > j }
+                        .findAll { int i, int j -> i > j }
                         .each { int i, int j -> matrix[i][j] = (matrix[j][i] = current++) }
 
         matrix

@@ -5,6 +5,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Iterator;
 
 import static java.lang.Math.*;
+import static pap.lorinc.algos.TriangularValidator.validate;
 
 public class TriangularCollection<T> implements Iterable<T> {
     private final Object[] sparseMatrix;
@@ -16,23 +17,7 @@ public class TriangularCollection<T> implements Iterable<T> {
         fillSparseMatrix(fullMatrix);
     }
 
-    private void validate(T[][] fullMatrix) {
-        int size = fullMatrix.length;
-        for (T[] row : fullMatrix)
-            if (size != row.length)
-                throw new IllegalStateException();
-
-        for (int i = 0; i < size; i++)
-            if (fullMatrix[i][i] != null)
-                throw new IllegalStateException();
-
-        for (int i = 0; i < size; i++)
-            for (int j = 0; j < size; j++)
-                if (fullMatrix[i][j] != fullMatrix[j][i])
-                    throw new IllegalStateException();
-    }
-
-    private int toSparseSize(int fullSize) {
+    private static int toSparseSize(int fullSize) {
         return ((fullSize - 1) * fullSize) / 2;
     }
 
@@ -63,19 +48,47 @@ public class TriangularCollection<T> implements Iterable<T> {
     }
 
     @Override public Iterator<T> iterator() {
-        return new Iterator<T>() {
-            private final int size = size();
-            private int index = 0;
+        return new TriangularIterator<>(this);
+    }
+}
 
-            @Override public boolean hasNext() {
-                return index < size * size;
-            }
+class TriangularIterator<T> implements Iterator<T> {
+    private final TriangularCollection<T> triangularCollection;
+    private final int size;
 
-            @Override public T next() {
-                int i = index / size, j = index % size;
-                index++;
-                return get(i, j);
-            }
-        };
+    private int index = 0;
+
+    protected TriangularIterator(TriangularCollection<T> triangularCollection) {
+        this.triangularCollection = triangularCollection;
+        size = triangularCollection.size();
+    }
+
+    @Override public boolean hasNext() {
+        return index < (size * size);
+    }
+
+    @Nullable @Override public T next() {
+        int i = index / size, j = index % size;
+        index++;
+        return (T) triangularCollection.get(i, j);
+    }
+}
+
+class TriangularValidator {
+    protected static <T> void validate(T[][] fullMatrix) {
+        int size = fullMatrix.length;
+        for (T[] row : fullMatrix)
+            if (size != row.length)
+                throw new IllegalArgumentException();
+
+        for (int i = 0; i < size; i++)
+            if (fullMatrix[i][i] != null)
+                throw new IllegalArgumentException();
+
+        for (int i = 0; i < size; i++)
+            for (int j = 0; j < size; j++)
+                //noinspection ObjectEquality
+                if (fullMatrix[i][j] != fullMatrix[j][i])
+                    throw new IllegalArgumentException();
     }
 }
