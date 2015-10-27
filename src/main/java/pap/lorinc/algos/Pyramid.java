@@ -8,8 +8,10 @@ import static pap.lorinc.algos.helpers.Strings.repeat;
 /**
  * http://javaconceptoftheday.com/how-to-create-pyramid-of-numbers-in-java
  */
-public class Pyramid {
+public final class Pyramid {
     private static final int COUNT = 9;
+
+    private Pyramid() {}
 
     public static void main(String... args) {
         drawConstantPyramid();                       // pattern 1

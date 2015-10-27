@@ -2,7 +2,9 @@ package pap.lorinc.algos.helpers;
 
 import static java.lang.Math.multiplyExact;
 
-public class Numbers {
+public final class Numbers {
+    private Numbers() {}
+
     public static boolean canDivide(long dividend, long divisor) {
         return (dividend % divisor) == 0;
     }

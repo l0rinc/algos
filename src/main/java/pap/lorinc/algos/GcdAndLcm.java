@@ -2,7 +2,9 @@ package pap.lorinc.algos;
 
 import static java.lang.Math.multiplyExact;
 
-public class GcdAndLcm {
+public final class GcdAndLcm {
+    private GcdAndLcm() {}
+
     /* TODO @tailrec or iterative */
     public static long gcd(long first, long second) {
         long remainder = first % second;
