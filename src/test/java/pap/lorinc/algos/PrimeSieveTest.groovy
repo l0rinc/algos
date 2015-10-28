@@ -8,7 +8,7 @@ import static pap.lorinc.algos.PrimeSieve.getPrimesUntil
 
 @Unroll class PrimeSieveTest extends Specification {
     private static int ITERATIONS = 5
-    private static int RANGE_END = 1000000
+    private static int RANGE_END = 100000
 
     /*@formatter:off*/
     def 'The first #primes.size() primes are calculated correctly - by example'() {
