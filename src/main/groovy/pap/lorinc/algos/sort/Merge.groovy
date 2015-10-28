@@ -1,39 +1,36 @@
 package pap.lorinc.algos.sort
 
-import groovy.transform.CompileStatic
 import groovy.transform.Memoized
 
-@CompileStatic class Merge {
-    static <T extends Comparable<T>> Collection<T> sort(Collection<T> originalElems) {
-        mergeSort originalElems.toList()
+final class Merge<T extends Comparable<?>> {
+    private Merge() {}
+
+    static <T extends Comparable<?>> Collection<T> sort(Collection<T> originalElems) {
+        def sort = new Merge<T>()
+        sort.mergeSort(originalElems.toList())
     }
 
-    private static <T extends Comparable<T>> List<T> mergeSort(List<T> elems) {
-        (elems.size() < 2) ? elems
-                           : merge(mergeSort(left(elems)),
-                                   mergeSort(right(elems)))
+    def mergeSort(List<T> elems) {
+        (elems.size() <= 1) ? elems
+                            : merge(mergeSort(left(elems)),
+                                    mergeSort(right(elems)))
     }
 
-    private static <T extends Comparable<T>> List<T> merge(List<T> left, List<T> right) {
+    def merge(List<T> leftElems, List<T> rightElems) {
         def results = []
-        def rightIter = 0
-        left.each { l ->
-            for (T r = right[rightIter] as T; r < l; rightIter++)
-                results += r
-            results += l
+
+        int j = 0
+        for (def left : leftElems) {
+            for (; j < rightElems.size() && rightElems[j] < left; j++)
+                results << rightElems[j]
+            results << left
         }
-        results.addAll right.subList(rightIter, right.size())
-        results
+
+        results + rightElems.subList(j, rightElems.size())
     }
 
-    private static <T extends Comparable<T>> List<T> left(List<T> elems) {
-        elems.subList 0, mid(elems)
-    }
-    private static <T extends Comparable<T>> List<T> right(List<T> elems) {
-        elems.subList mid(elems) + 1, elems.size()
-    }
+    def left(List<T> elems) { elems.subList(0, mid(elems)) }
+    def right(List<T> elems) { elems.subList(mid(elems), elems.size()) }
 
-    private static @Memoized int mid(List elems) {
-        elems.size() / 2 as int
-    }
+    @Memoized int mid(List elems) { elems.size() >> 1 }
 }

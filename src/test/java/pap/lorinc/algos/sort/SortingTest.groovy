@@ -11,6 +11,7 @@ class SortingTest extends Specification {
     def 'Different sorting algorithms give the same results'() {
         expect: Insertion.sort(elems) == referenceSortedElems
                 Selection.sort(elems) == referenceSortedElems
+                Merge.sort(elems)     == referenceSortedElems
 
         where:  size << Gen.integer(0, SIZE) * ITERATIONS
                 elems = (Gen.integer * size).collect()
