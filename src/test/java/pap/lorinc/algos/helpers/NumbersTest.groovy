@@ -1,10 +1,11 @@
 package pap.lorinc.algos.helpers
 
 import spock.genesis.Gen
+import spock.genesis.generators.values.LongGenerator
 import spock.lang.Specification
 
 class NumbersTest extends Specification {
-    private static int ITERATIONS = 1000
+    private static int ITERATIONS = 10_000
 
     /*@formatter:off*/
     def "#number^#exponent = #result mod #modulo"(int number, int exponent, int modulo, long result) {
@@ -46,6 +47,34 @@ class NumbersTest extends Specification {
 
         where:  number << Gen.integer(0, Integer.MAX_VALUE) * ITERATIONS
                 maxExponent = Numbers.maxExponent(number)
+    }
+
+    def 'isProbablePrime?'() {
+        when:   def expected = range.findAll { (it as BigInteger).isProbablePrime(probability) }
+                def actual = range.findAll { Numbers.isProbablePrime(it as long, probability) }
+        then:   actual == expected
+
+        where:  range = 2..1_000_000
+                probability = 100 as byte
+    }
+
+    def 'random?'(int start, int end) {
+        when:   def chosen = Numbers.random(start, end)
+        then:   chosen >= start
+                chosen <= end
+
+        where:  start << Gen.integer * ITERATIONS
+                end = Gen.integer(start, Integer.MAX_VALUE).next()
+    }
+
+    def 'numBits?'(long number) {
+        when:   def numBits = Numbers.numBits(number)
+        and:    def bits = 0
+                for (def result = number; result > 0; result >>= 1)
+                    bits++
+        then:   bits == numBits
+
+        where:  number << new LongGenerator(0, Long.MAX_VALUE) * ITERATIONS
     }
     /*@formatter:on*/
 }

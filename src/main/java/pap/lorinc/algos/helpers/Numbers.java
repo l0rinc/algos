@@ -1,5 +1,8 @@
 package pap.lorinc.algos.helpers;
 
+import java.math.BigInteger;
+import java.util.Random;
+
 import static java.lang.Math.multiplyExact;
 
 public final class Numbers {
@@ -36,6 +39,53 @@ public final class Numbers {
     public static int maxExponent(long number) {
         assertPositive(number);
         return (int) (Math.log(Long.MAX_VALUE) / Math.log(number));
+    }
+
+    /**
+     * Probabilistic primality test based on Fermat's little theorem, i.e.
+     * <pre>{@code
+     *   if p is prime and 0 < b < p, then
+     *   b^(p-1) mod p ≡ 1
+     * }</pre>
+     */
+    public static boolean isProbablePrime(long number, byte probability) {
+        assertPositive(number, probability);
+
+        if (number < 2) return false;
+        long previousNumber = number - 1;
+
+        Random random = new Random();
+        for (int i = 0; i < probability; i++) {
+            long chosen = random(random, 1, previousNumber);
+            long pow = pow(chosen, (int) previousNumber, number);
+            if (pow != 1)
+                return false;
+        }
+
+        return true;
+    }
+
+    public static long random(long startInclusive, long endInclusive) {
+        return random(new Random(), startInclusive, endInclusive);
+    }
+
+    public static long random(Random random, long startInclusive, long endInclusive) {
+        if (startInclusive > endInclusive) throw new IllegalArgumentException("`startInclusive` should be less than `endInclusive`!");
+
+        long chosen = Long.MAX_VALUE;
+        for (long size = endInclusive - startInclusive; chosen > size; )
+            chosen = random(random, size);
+        return startInclusive + chosen;
+    }
+
+    public static long random(Random random, long size) {
+        int numBits = numBits(size);
+        return new BigInteger(numBits, random).longValue();
+    }
+
+    public static int numBits(long number) {
+        assertPositive(number);
+        return Long.SIZE - Long.numberOfLeadingZeros(number);
     }
 
     private static void assertPositive(long... numbers) {
