@@ -4,15 +4,26 @@ import spock.genesis.Gen
 import spock.lang.Specification
 
 class SortingTest extends Specification {
-    static final int ITERATIONS = 10
-    static final int SIZE = 1000
+    static final int ITERATIONS = 3
+    static final int SIZE = 20000
 
     /*@formatter:off*/
-    def 'Different sorting algorithms give the same results'() {
+    def 'Insersion sort?'() {
         expect: Insertion.sort(elems) == referenceSortedElems
-                Selection.sort(elems) == referenceSortedElems
-                Merge.sort(elems)     == referenceSortedElems
+        where:  size << Gen.integer(0, SIZE) * ITERATIONS
+                elems = (Gen.integer * size).collect()
+                referenceSortedElems = elems.sort(false).asImmutable()
+    }
 
+    def 'Selection sort?'() {
+        expect: Selection.sort(elems) == referenceSortedElems
+        where:  size << Gen.integer(0, SIZE) * ITERATIONS
+                elems = (Gen.integer * size).collect()
+                referenceSortedElems = elems.sort(false).asImmutable()
+    }
+
+    def 'Merge sort?'() {
+        expect: Merge.sort(elems) == referenceSortedElems
         where:  size << Gen.integer(0, SIZE) * ITERATIONS
                 elems = (Gen.integer * size).collect()
                 referenceSortedElems = elems.sort(false).asImmutable()

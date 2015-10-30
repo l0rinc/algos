@@ -4,7 +4,9 @@ import groovy.transform.CompileStatic
 
 import static java.util.Collections.swap
 
-@CompileStatic class Insertion {
+@CompileStatic final class Insertion {
+    private Insertion() {}
+
     static <T extends Comparable<?>> Collection<T> sort(Collection<T> originalElems) {
         def elems = originalElems.toList()
         elems.indices.each { int i ->
