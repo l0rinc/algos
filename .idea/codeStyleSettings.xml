@@ -52,7 +52,6 @@
           <option name="KEEP_BLANK_LINES_BEFORE_RBRACE" value="0" />
           <option name="BLANK_LINES_AROUND_METHOD" value="0" />
           <option name="BLANK_LINES_AROUND_METHOD_IN_INTERFACE" value="0" />
-          <option name="WHILE_ON_NEW_LINE" value="true" />
           <option name="CATCH_ON_NEW_LINE" value="true" />
           <option name="FINALLY_ON_NEW_LINE" value="true" />
           <option name="ALIGN_MULTILINE_CHAINED_METHODS" value="true" />
