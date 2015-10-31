@@ -9,8 +9,8 @@ final class Merge<T extends Comparable<?>> {
     private Merge() {}
 
     static <T extends Comparable<?>> Collection<T> sort(Collection<T> originalElems) {
-        def sort = new Merge<T>()
-        sort.mergeSort(originalElems.toList())
+        def list = originalElems.toList()
+        new Merge<T>().mergeSort(list)
     }
 
     def mergeSort(List<T> elems) {
