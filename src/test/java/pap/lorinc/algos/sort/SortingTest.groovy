@@ -8,7 +8,7 @@ class SortingTest extends Specification {
     static final int SIZE = 20000
 
     /*@formatter:off*/
-    def 'Insersion sort?'() {
+    def 'Insertion sort?'() {
         expect: Insertion.sort(elems) == referenceSortedElems
         where:  size << Gen.integer(0, SIZE) * ITERATIONS
                 elems = (Gen.integer * size).collect()
@@ -24,6 +24,13 @@ class SortingTest extends Specification {
 
     def 'Merge sort?'() {
         expect: Merge.sort(elems) == referenceSortedElems
+        where:  size << Gen.integer(0, SIZE) * ITERATIONS
+                elems = (Gen.integer * size).collect()
+                referenceSortedElems = elems.sort(false).asImmutable()
+    }
+
+    def 'Quick sort?'() {
+        expect: Quick.sort(elems) == referenceSortedElems
         where:  size << Gen.integer(0, SIZE) * ITERATIONS
                 elems = (Gen.integer * size).collect()
                 referenceSortedElems = elems.sort(false).asImmutable()
