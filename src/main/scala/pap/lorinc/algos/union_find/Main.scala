@@ -14,13 +14,13 @@ object Main extends App {
     println(union.getClass getSimpleName)
 
     for (elements ← connections) {
-      println(s"Connecting ${ elements }")
-      union connect (elements.head, elements.tail: _*)
+      println(s"Connecting ${elements}")
+      union connect(elements.head, elements.tail: _*)
     }
 
-    println(s"${ union.count } components found")
+    println(s"${union.count} components found")
     for ((group, elements) ← union.groups)
-      println(elements.toList.sorted mkString ("{", ", ", "}"))
+      println(elements.toList.sorted mkString("{", ", ", "}"))
 
     assert(union.connected(8, 0))
     assert(union.connected(3, 1, 4, 1, 5, 9))
@@ -36,8 +36,8 @@ object Main extends App {
 
     println(); println(union.getClass getSimpleName)
 
-    val percolation = Timer.run { percolate(dim, union) }
-    println(s"Connected: ${ percolation threshold }")
+    val percolation = Timer.run {percolate(dim, union)}
+    println(s"Connected: ${percolation threshold}")
     if (percolation.dim < 100) percolation.printGrid()
   }
 

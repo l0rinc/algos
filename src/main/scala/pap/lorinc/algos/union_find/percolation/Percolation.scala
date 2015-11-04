@@ -17,15 +17,15 @@ class Percolation(override val dim: Int, private val union: UnionFindBase[Int]) 
 
   def connect(node: Int, neighbor: (Int, Int)) = {
     if (marked(neighbor)) {
-      union connect (node, toIndex(neighbor))
+      union connect(node, toIndex(neighbor))
 
       val (_, y) = neighbor
       if (y == 0)
-        union connect (node, topVirtualNode)
+        union connect(node, topVirtualNode)
       else if (y == dim - 1)
-        union connect (node, bottomVirtualNode)
+        union connect(node, bottomVirtualNode)
     }
   }
 
-  def percolates = union connected (topVirtualNode, bottomVirtualNode)
+  def percolates = union connected(topVirtualNode, bottomVirtualNode)
 }

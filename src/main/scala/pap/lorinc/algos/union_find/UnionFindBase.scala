@@ -19,7 +19,7 @@ trait UnionFindBase[@specialized(Int) T] {
   def connected(first: T, second: T, rest: T*) = {
     val reference = root(first)
     (reference == root(second)
-     && (rest forall { reference == root(_) }))
+     && (rest forall {reference == root(_)}))
   }
 
   def count = groups.size

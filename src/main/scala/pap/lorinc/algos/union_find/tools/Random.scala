@@ -5,7 +5,7 @@ import scala.annotation.tailrec
 object Random {
   private var seed = System.currentTimeMillis
   val random = {
-    println(s"Using seed: ${ seed }L")
+    println(s"Using seed: ${seed}L")
     new scala.util.Random(seed)
   }
 
