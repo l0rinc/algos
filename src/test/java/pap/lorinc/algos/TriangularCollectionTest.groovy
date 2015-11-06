@@ -9,7 +9,7 @@ import spock.lang.Unroll
     def 'Initialized elements of size #fullMatrix.length coincide with original ones'(Object[][] fullMatrix, int sparseSize) {
         when:   def sparseMatrix = new TriangularCollection(fullMatrix)
 
-        then:   sparseMatrix.sparseMatrix.length == sparseSize
+        then:   sparseMatrix.sparseMatrix.size() == sparseSize
         and:    equals(sparseMatrix, fullMatrix)
 
         where:  fullMatrix                                                                       | sparseSize

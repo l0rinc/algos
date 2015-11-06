@@ -2,18 +2,21 @@ package pap.lorinc.algos;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import static java.lang.Math.*;
 import static pap.lorinc.algos.TriangularValidator.validate;
 
+@SuppressWarnings({"unchecked", "SuspiciousArrayCast"})
 public class TriangularCollection<T> implements Iterable<T> {
-    private final Object[] sparseMatrix;
+    private final List<T> sparseMatrix;
 
     public TriangularCollection(T[][] fullMatrix) {
         validate(fullMatrix);
 
-        sparseMatrix = new Object[toSparseSize(fullMatrix.length)];
+        sparseMatrix = new ArrayList<>(toSparseSize(fullMatrix.length));
         fillSparseMatrix(fullMatrix);
     }
 
@@ -22,9 +25,9 @@ public class TriangularCollection<T> implements Iterable<T> {
     }
 
     private void fillSparseMatrix(T[][] fullMatrix) {
-        for (int i = 0, currentIndex = 0; i < fullMatrix.length; i++)
+        for (int i = 0; i < fullMatrix.length; i++)
             for (int j = 0; j < i; j++)
-                sparseMatrix[currentIndex++] = fullMatrix[i][j];
+                sparseMatrix.add(fullMatrix[i][j]);
     }
 
     /**
@@ -38,13 +41,13 @@ public class TriangularCollection<T> implements Iterable<T> {
      * }</pre>
      */
     public int size() {
-        return (1 + (int) sqrt(1 + (sparseMatrix.length * 8))) / 2;
+        return (1 + (int) sqrt(1 + (sparseMatrix.size() * 8))) / 2;
     }
 
     @SuppressWarnings("unchecked")
     public @Nullable T get(int i, int j) {
         return (i == j) ? null
-                        : (T) sparseMatrix[toSparseSize(max(i, j)) + min(i, j)];
+                        : sparseMatrix.get(toSparseSize(max(i, j)) + min(i, j));
     }
 
     @Override public Iterator<T> iterator() {
@@ -70,7 +73,7 @@ class TriangularIterator<T> implements Iterator<T> {
     @Nullable @Override public T next() {
         int i = index / size, j = index % size;
         index++;
-        return (T) triangularCollection.get(i, j);
+        return triangularCollection.get(i, j);
     }
 }
 
