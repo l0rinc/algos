@@ -4,8 +4,9 @@ import spock.lang.Specification
 
 class GrayCodeTest extends Specification {
     /*@formatter:off*/
-    def 'can convert from Gray to Binary'() {
+    def 'can convert from Gray to Binary and back'() {
         expect: GrayCode.fromBinary(binary) == gray
+                GrayCode.toBinary(gray) == binary
         where:  binary    || gray
                 0b00000   || 0b00000
                 0b00001   || 0b00001
