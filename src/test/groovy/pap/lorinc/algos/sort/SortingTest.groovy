@@ -35,5 +35,12 @@ class SortingTest extends Specification {
                 elems = (Gen.integer * size).collect()
                 referenceSortedElems = elems.sort(false).asImmutable()
     }
+
+    def 'Heap sort?'() {
+        expect: Heap.sort(elems.toList()) == referenceSortedElems
+        where:  size << Gen.integer(0, SIZE) * ITERATIONS
+                elems = (Gen.integer * size).collect()
+                referenceSortedElems = elems.sort(false).asImmutable()
+    }
     /*@formatter:on*/
 }
