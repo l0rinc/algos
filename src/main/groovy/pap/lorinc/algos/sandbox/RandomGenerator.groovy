@@ -1,6 +1,6 @@
 package pap.lorinc.algos.sandbox
 
-import static pap.lorinc.algos.helpers.Numbers.*
+import static pap.lorinc.algos.helpers.Numbers.numBits
 
 /*
  * Given a function which produces a random integer in the range 1 to 5,
@@ -8,20 +8,20 @@ import static pap.lorinc.algos.helpers.Numbers.*
  **/
 class RandomGenerator {
     static getRandomNumber(IntRange range) {
-        def value = getRandomNumber(range.to)
-        range.containsWithinBounds(value) ? value
-                                          : getRandomNumber(range)
+        def candidate = range.from + getRandomNumber(range.size())
+        range.containsWithinBounds(candidate) ? candidate
+                                              : getRandomNumber(range)
     }
 
-    static getRandomNumber(int size) {
-        def bits = getRandomBits(size)
+    static getRandomNumber(int magnitude) {
+        def bits = getRandomBits(magnitude)
         fromBinary(bits.join(''))
     }
 
-    static getRandomBits(int size) { (1..numBits(size)).collect { generateRandomBit() } }
+    static getRandomBits(int magnitude) { (1..numBits(magnitude)).collect { generateRandomBit() } }
     static fromBinary(String value) { new BigInteger(value, 2).intValue() }
 
-    static generateRandomBit() { // TODO generalize for (min..max)?
+    static generateRandomBit() { // TODO generalize for (min..max) and for multiple values
         switch (rand1_5()) {
             case [1, 2]: return 0
             case [3, 4]: return 1
