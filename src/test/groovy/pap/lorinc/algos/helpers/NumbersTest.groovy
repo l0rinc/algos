@@ -4,6 +4,8 @@ import spock.genesis.Gen
 import spock.genesis.generators.values.LongGenerator
 import spock.lang.Specification
 
+import static pap.lorinc.algos.sandbox.RandomGeneratorTest.hasUniformDistribution
+
 class NumbersTest extends Specification {
     private static int ITERATIONS = 10_000
 
@@ -60,11 +62,16 @@ class NumbersTest extends Specification {
 
     def 'random?'(int start, int end) {
         when:   def chosen = Numbers.random(start, end)
-        then:   chosen >= start
-                chosen <= end
+        then:   (start..end).containsWithinBounds(chosen as int)
 
         where:  start << Gen.integer * ITERATIONS
                 end = Gen.integer(start, Integer.MAX_VALUE).next()
+    }
+
+    def 'discrete, uniform distribution, chi-squared validations for Numbers.random'() {
+        when:   def range = 1..7
+                def rand = { Numbers.random(range.from, range.to) as int }
+        then:   hasUniformDistribution(range, rand)
     }
 
     def 'numBits?'(long number) {
