@@ -22,6 +22,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 repositories {
     mavenCentral()
     maven { url 'http://clojars.org/repo' }
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     jcenter()
 }
 
@@ -32,7 +33,8 @@ dependencies {
             [group: 'org.jetbrains', name: 'annotations', version: '15.0']
     )
 
-    testCompile([group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.4'],
-                [group: 'com.nagternal', name: 'spock-genesis', version: '0.3.0']
+    testCompile([group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4-SNAPSHOT'],
+                [group: 'com.nagternal', name: 'spock-genesis', version: '0.3.0'],
+                [group: 'org.apache.commons', name: 'commons-math3', version: '3.5']
     )
 }
