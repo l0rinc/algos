@@ -11,24 +11,31 @@ class StringPermutationOccurrence {
     }
 
     static findEachPermutation(String text, String word, Closure closure) {
-        word = sort(word)
-        def wordHash = hash(word)
-        def wordLength = word.size()
+        def sortedWord = sortChars(word)
+        def wordHash = charSetHash(sortedWord)
+        def wordLength = sortedWord.size()
 
-        def chunkHash = hash(text[0..<wordLength])
+        findEachPermutation(text, sortedWord, wordHash, wordLength, closure)
+    }
+
+    static findEachPermutation(String text, String sortedWord, int wordHash, int wordLength, Closure closure) {
+        def chunkHash = charSetHash(text[0..<wordLength])
         for (pos in 0..<(text.size() - wordLength)) {
-            def chunk = text[pos..<(pos + wordLength)]
-            if (isPalindrome(chunkHash, wordHash, chunk, word))
-                closure(pos, chunk)
+            def chunk = { text[pos..<(pos + wordLength)] }
+            if (isPermutation(chunkHash, wordHash, chunk, sortedWord))
+                closure(pos, chunk())
 
-            chunkHash += -hash(text[pos]) + hash(text[pos + wordLength])
+            chunkHash = mergeHashes(chunkHash,
+                                    charSetHash(text[pos]),
+                                    charSetHash(text[pos + wordLength]))
         }
     }
 
-    static isPalindrome(chunkHash, wordHash, String fragment, String word) {
-        (chunkHash == wordHash) && (sort(fragment) == word)
+    static isPermutation(int chunkHash, int wordHash, Closure chunk, String sortedWord) {
+        (chunkHash == wordHash) && (sortChars(chunk()) == sortedWord)
     }
 
-    static String sort(String word) { word.collect().sort().join('') } /* O(w log w), but could easily be O(w), since the alphabet is small, but since w is small also, it doesn't change anything */
-    static hash(String s) { s.collect { it.hashCode() }.sum() }
+    static sortChars(String word) { word.collect().sort().join('') }
+    static charSetHash(String s) { mergeHashes(s*.hashCode() as int[]) }
+    static mergeHashes(int ... hashes) { hashes.inject { a, b -> a ^ b } }
 }
