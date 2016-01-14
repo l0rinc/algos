@@ -1,9 +1,9 @@
-package pap.lorinc.algos.sandbox
+package pap.lorinc.algos.ctci._0
 
 import spock.genesis.Gen
 import spock.lang.Specification
 
-import static pap.lorinc.algos.sandbox.SortedCollectionIntersection.intersection
+import static pap.lorinc.algos.ctci._0.SortedCollectionIntersection.intersection
 
 class SortedCollectionIntersectionTest extends Specification {
     /*@formatter:off*/

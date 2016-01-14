@@ -1,6 +1,8 @@
-package pap.lorinc.algos.sandbox
+package pap.lorinc.algos.ctci._0
 
-/* Given a smaller string and a bigger string, find all the permutations of the former in the latter. */
+/** Given a smaller string and a bigger string, find all the permutations of the former in the latter.
+ ** Complexity: O(text.size())
+ **/
 class StringPermutationOccurrence {
     static void main(String... args) {
         def text = 'bacabcabcbacbcbcbcabcabcabcbcbcabcabc'

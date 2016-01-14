@@ -1,6 +1,8 @@
-package pap.lorinc.algos.sandbox
+package pap.lorinc.algos.ctci._0
 
-/* Given two sorted lists, find their intersection */
+/** Given two sorted lists, find their intersection
+ ** Complexity: O(min(first.size(), second.size())
+ **/
 class SortedCollectionIntersection {
     static <T> List intersection(Collection<T> first, Collection<T> second) {
         def results = []

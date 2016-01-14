@@ -1,6 +1,8 @@
-package pap.lorinc.algos.sandbox
+package pap.lorinc.algos.ctci._0
 
-/* for a,b,c,d in 1..1000 find all, where a**3 + b**3 = c**3 + d**3 */
+/** for a,b,c,d in 1..1000 find all, where a**3 + b**3 = c**3 + d**3
+** Complexity: O(range.size()**2)
+**/
 class CubeSumEquality {
     static final RANGE = 1..1000
 
