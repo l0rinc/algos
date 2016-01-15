@@ -22,7 +22,7 @@ class RandomGeneratorTest extends Specification {
     /*@formatter:on*/
 
     static hasUniformDistribution(IntRange range, Closure rand) {
-        def expectedValueFrequency = 1000
+        def expectedValueFrequency = 10000
 
         double[] expected = [expectedValueFrequency] * range.size()
 
@@ -30,7 +30,7 @@ class RandomGeneratorTest extends Specification {
         assert nums.every { range.containsWithinBounds(it) }
         long[] observed = nums.countBy { it }.sort().values()
 
-        def pValue = 0.1
+        def pValue = 0.05
 
         !new ChiSquareTest().chiSquareTest(expected, observed, pValue)
     }
