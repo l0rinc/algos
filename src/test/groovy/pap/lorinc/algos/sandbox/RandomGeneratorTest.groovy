@@ -30,7 +30,7 @@ class RandomGeneratorTest extends Specification {
         assert nums.every { range.containsWithinBounds(it) }
         long[] observed = nums.countBy { it }.sort().values()
 
-        def pValue = 0.05
+        def pValue = 0.1
 
         !new ChiSquareTest().chiSquareTest(expected, observed, pValue)
     }
