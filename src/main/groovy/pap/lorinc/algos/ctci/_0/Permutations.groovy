@@ -4,9 +4,7 @@ import pap.lorinc.algos.utils.StopWatch
 
 import static pap.lorinc.algos.utils.RandomGenerator.generateRandomString
 
-/** Generate all permutations of the elements of a collection
- ** Complexity: O(values.size()!)
- **/
+/** Generate all permutations of the elements of a collection */
 class Permutations {
     static void main(String... args) {
         def values = generateRandomString(1..10, 'a'..'z').collect()
@@ -18,6 +16,7 @@ class Permutations {
         println "$result \t\t\t ($elapsed)"
     }
 
+    /** Complexity: O(values.size()!) */
     static permute(Collection<Object> values, Closure closure, List<Object> results = []) {
         if (values.empty) closure(results)
         else values.eachWithIndex { v, i ->

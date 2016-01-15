@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 import static pap.lorinc.algos.ctci._1._1_2_IsPermutation.isPermutation
 
-class _1_1_IsPermutationTest extends Specification {
+class _1_2_IsPermutationTest extends Specification {
     /*@formatter:off*/
     def 'IsPermutation?'() {
         expect: isPermutation(original.collect(), candidate.collect()) == result

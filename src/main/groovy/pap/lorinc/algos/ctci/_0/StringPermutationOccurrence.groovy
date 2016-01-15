@@ -1,8 +1,6 @@
 package pap.lorinc.algos.ctci._0
 
-/** Given a smaller string and a bigger string, find all the permutations of the former in the latter.
- ** Complexity: O(text.size())
- **/
+/** Given a smaller string and a bigger string, find all the permutations of the former in the latter */
 class StringPermutationOccurrence {
     static void main(String... args) {
         def text = 'bacabcabcbacbcbcbcabcabcabcbcbcabcabc'
@@ -12,6 +10,7 @@ class StringPermutationOccurrence {
         }
     }
 
+    /** Complexity: O(text.size()) */
     static findEachPermutation(String text, String word, Closure closure) {
         def sortedWord = sortChars(word)
         def wordHash = charSetHash(sortedWord)
