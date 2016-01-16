@@ -36,7 +36,7 @@ class StringPermutationOccurrence {
         (chunkHash == wordHash) && (sortChars(chunk()) == sortedWord)
     }
 
-    static sortChars(String word) { word.collect().sort().join('') }
+    static sortChars(String word) { word.collect().sort().join() }
     static charSetHash(String s) { mergeHashes(s*.hashCode() as int[]) }
     static mergeHashes(int ... hashes) { hashes.inject { a, b -> a ^ b } }
 }

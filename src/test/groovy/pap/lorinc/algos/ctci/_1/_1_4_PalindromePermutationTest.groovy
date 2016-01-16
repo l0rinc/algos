@@ -21,6 +21,6 @@ class _1_4_PalindromePermutationTest extends Specification {
     static shuffle(String string) {
         def collect = string.collect()
         Collections.shuffle(collect)
-        collect.join('')
+        collect.join()
     }
 }

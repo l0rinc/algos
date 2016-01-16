@@ -15,7 +15,7 @@ class RandomGenerator {
 
     static getRandomNumber(int magnitude) {
         def bits = getRandomBits(magnitude)
-        fromBinary(bits.join(''))
+        fromBinary(bits.join())
     }
 
     static getRandomBits(int magnitude) { (1..bitCount(magnitude)).collect { generateRandomBit() } }

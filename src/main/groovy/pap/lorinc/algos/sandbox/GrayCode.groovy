@@ -13,6 +13,6 @@ class GrayCode {
             gray << (gray.last() ^ bits[i])
         }
 
-        new BigInteger(gray.join(''), 2).intValue()
+        new BigInteger(gray.join(), 2).intValue()
     }
 }
