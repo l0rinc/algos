@@ -6,12 +6,11 @@ import static java.lang.Math.max
 class _1_3_URLify {
     static urlify(String string, int length, String search, String replacement) {
         def result = urlify(new StringBuilder(string), length, search, replacement)
-
         assert result.size() == string.size()
         result.toString()
     }
 
-    /** Complexity: O(string.length * search.length()), no additional space costs */
+    /** Complexity: O(string.length * search.length()), no additional space used */
     static urlify(StringBuilder string, int length, String search, String replacement) {
         assert (search.length() <= replacement.length()) && (length <= string.length())
 

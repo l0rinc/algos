@@ -9,6 +9,9 @@ class _1_5_EditDistanceTest extends Specification {
     def 'isCloseEnough?'() {
         expect: isCloseEnough(a, b) == isCloseEnough
         where:  a       | b      || isCloseEnough
+                ''      | 'a'    || true
+                'a'     | ''     || true
+                'pale'  | 'pale' || true
                 'pale'  | 'ale'  || true
                 'pale'  | 'ple'  || true
                 'pale'  | 'pae'  || true

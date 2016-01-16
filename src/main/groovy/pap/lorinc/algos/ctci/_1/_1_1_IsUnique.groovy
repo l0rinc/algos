@@ -14,7 +14,7 @@ class _1_1_IsUnique {
         linear
     }
 
-    /* O(values.size()**2), no additional space */
+    /** O(values.size()**2), no additional space */
     static isUnique_Squared(List values) {
         for (i in values.indices)
             if (values.findLastIndexOf(i + 1) { it == values[i] } >= 0)
@@ -22,7 +22,7 @@ class _1_1_IsUnique {
         true
     }
 
-    /* O(n log n), where n = values.size(), no additional space, but could probably be O(n) also, though not in-place */
+    /** O(n log n), where n = values.size(), no additional space. Could be O(n) also, with O(n) space */
     static isUnique_Linearithmic(List values) {
         values = values.clone()
         values.sort()
@@ -32,7 +32,7 @@ class _1_1_IsUnique {
         true
     }
 
-    /* O(values.size()), but needs same amount of space */
+    /** O(values.size()), but needs same amount of space */
     static isUnique_Linear(List values) {
         Set seen = []
         values.every { seen.add(it) }

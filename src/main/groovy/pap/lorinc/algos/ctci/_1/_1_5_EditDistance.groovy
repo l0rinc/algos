@@ -2,19 +2,17 @@ package pap.lorinc.algos.ctci._1
 
 import static java.lang.Math.abs
 
-/** Calculate te edit distance (insert, remove, replace) between two stings (for simplicity only 0-1 edits) */
+/** Calculate the edit distance (insert, remove, replace) between two stings (for simplicity only 0-1 edits) */
 class _1_5_EditDistance {
-    /** Complexity: O(a.size()) */
-    static isCloseEnough(String first, String second) {
-        if (first == second) return true
-
-        def (a, b) = [first, second]*.toList() /* avoids AIBE*/
-        return isCloseEnough(a, b)
+    static isCloseEnough(String a, String b) {
+        isCloseEnough(a.toList(), b.toList()) /* avoids AIOBE */
     }
 
+    /** Complexity: O(a.size()) */
     static isCloseEnough(List a, List b) {
-        boolean editsFound = false
+        if (a == b) return true
 
+        boolean editsFound = false
         def (i, j) = [0, 0]
         while (i < a.size() || j < b.size()) {
             if (a[i] == b[j]) {
