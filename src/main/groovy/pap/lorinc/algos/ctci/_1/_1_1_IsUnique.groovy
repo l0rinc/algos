@@ -9,7 +9,7 @@ class _1_1_IsUnique {
         def linearithmic = isUnique_Linearithmic(values)
         def linear = isUnique_Linear(values)
 
-        assert ([squared, linearithmic, linear] as Set).size() == 1
+        assert [squared, linearithmic].every { it == linear }
 
         linear
     }

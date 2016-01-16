@@ -7,7 +7,7 @@ import static pap.lorinc.algos.utils.RandomGenerator.generateRandomString
 /** Generate all permutations of the elements of a collection */
 class Permutations {
     static void main(String... args) {
-        def values = generateRandomString(1..10, 'a'..'z').collect()
+        def values = generateRandomString(10, 'a'..'z').collect()
         def (result, elapsed) = StopWatch.run {
             def count = 0
             permute(values) { count++ }

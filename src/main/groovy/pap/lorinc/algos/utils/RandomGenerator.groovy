@@ -1,9 +1,9 @@
 package pap.lorinc.algos.utils
 
 class RandomGenerator {
-    static generateRandomString(IntRange length, List alphabet) {
+    static generateRandomString(int size, List alphabet) {
         def random = new Random()
-        length.collect { alphabet[random.nextInt(alphabet.size())] }
-              .join()
+        (0..<size).collect { alphabet[random.nextInt(alphabet.size())] }
+                  .join()
     }
 }
