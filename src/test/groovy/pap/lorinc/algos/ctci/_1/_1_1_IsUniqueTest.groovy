@@ -8,9 +8,9 @@ import static pap.lorinc.algos.utils.RandomGenerator.generateRandomString
 class _1_1_IsUniqueTest extends Specification {
     /*@formatter:off*/
     def 'IsUnique?'() {
-        when:   def referenceIsUnique = ((values as Set).size() == values.size())
+        when:   def referenceIsUnique = (values.unique() == values)
         then:   isUnique(values) == referenceIsUnique
-        where:  values = generateRandomString(10, 'a'..'z').collect()
+        where:  values = generateRandomString(10, 'a'..'z').toList()
     }
     /*@formatter:on*/
 }

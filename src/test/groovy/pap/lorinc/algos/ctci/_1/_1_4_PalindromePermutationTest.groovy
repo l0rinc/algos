@@ -1,10 +1,10 @@
 package pap.lorinc.algos.ctci._1
 
-import spock.lang.Specification
+import spock.lang.*
 
 import static pap.lorinc.algos.ctci._1._1_4_PalindromePermutation.canBePalindrome
 
-class _1_4_PalindromePermutationTest extends Specification {
+@Unroll class _1_4_PalindromePermutationTest extends Specification {
     /*@formatter:off*/
     def 'PalindromePermutation?'() {
         expect: canBePalindrome(shuffle(string)) == verdict
@@ -19,7 +19,7 @@ class _1_4_PalindromePermutationTest extends Specification {
     /*@formatter:on*/
 
     static shuffle(String string) {
-        def collect = string.collect()
+        def collect = string.toList()
         Collections.shuffle(collect)
         collect.join()
     }

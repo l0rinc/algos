@@ -2,8 +2,7 @@ package pap.lorinc.algos
 
 import pap.lorinc.algos.helpers.Numbers
 import spock.genesis.Gen
-import spock.lang.Specification
-import spock.lang.Unroll
+import spock.lang.*
 
 import static pap.lorinc.algos.PrimeSieve.getPrimesUntil
 

@@ -1,10 +1,10 @@
 package pap.lorinc.algos.ctci._1
 
-import spock.lang.Specification
+import spock.lang.*
 
 import static pap.lorinc.algos.ctci._1._1_6_RunLengthEncoding.compress
 
-class _1_6_RunLengthEncodingTest extends Specification {
+@Unroll class _1_6_RunLengthEncodingTest extends Specification {
     /*@formatter:off*/
     def 'compress?'() {
         expect: compress(original) == compressed

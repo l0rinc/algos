@@ -1,12 +1,11 @@
 package pap.lorinc.algos.ctci._2
 
-import spock.lang.Specification
+import spock.lang.*
 
-import static java.lang.Math.E
-import static java.lang.Math.PI
+import static java.lang.Math.*
 import static pap.lorinc.algos.ctci._2._2_3_DeleteNode.deleteNode
 
-class _2_3_DeleteNodeTest extends Specification {
+@Unroll class _2_3_DeleteNodeTest extends Specification {
     /*@formatter:off*/
     def 'delete?'() {
         expect: source.eachWithIndex { _, int i ->

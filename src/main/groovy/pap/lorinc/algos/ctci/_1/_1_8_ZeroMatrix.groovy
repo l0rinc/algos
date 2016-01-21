@@ -4,7 +4,7 @@ class _1_8_ZeroMatrix {
     /** Complexity: O(width*height), uses O(width+height) space.
      *  Note: we could mark the occurrence on the first column/row also, to reduce space usage, but would complicate the algorithm too much. */
     static zeroOutRowsAndColumns(int[][] matrix) {
-        def (markedColumns, markedRows) = getMarkedColumnsAndRows(matrix, { it == 0 })
+        def (markedColumns, markedRows) = getMarkedColumnsAndRows(matrix) { it == 0 }
 
         zeroOutColumns(matrix, markedColumns)
         zeroOutRows(matrix, markedRows)

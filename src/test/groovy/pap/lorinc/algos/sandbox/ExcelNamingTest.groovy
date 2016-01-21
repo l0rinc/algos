@@ -1,7 +1,6 @@
 package pap.lorinc.algos.sandbox
 
-import spock.lang.Specification
-import spock.lang.Unroll
+import spock.lang.*
 
 @Unroll class ExcelNamingTest extends Specification {
     /*@formatter:off*/

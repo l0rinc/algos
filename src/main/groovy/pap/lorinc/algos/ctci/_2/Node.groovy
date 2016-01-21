@@ -1,12 +1,10 @@
 package pap.lorinc.algos.ctci._2
 
-import groovy.transform.EqualsAndHashCode
-import groovy.transform.ToString
-import groovy.transform.TupleConstructor
+import groovy.transform.*
 
 @TupleConstructor @EqualsAndHashCode(includes = 'value') @ToString(includePackage = false)
 class Node<T> implements Iterable<Node<T>> {
-    private static final SENTINEL = new Node<>()
+    static final SENTINEL = new Node<>()
 
     T value
     Node<T> next = SENTINEL

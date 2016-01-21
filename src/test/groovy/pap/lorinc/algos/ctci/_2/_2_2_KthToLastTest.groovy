@@ -1,12 +1,11 @@
 package pap.lorinc.algos.ctci._2
 
-import spock.lang.Specification
+import spock.lang.*
 
-import static java.lang.Math.E
-import static java.lang.Math.PI
+import static java.lang.Math.*
 import static pap.lorinc.algos.ctci._2._2_2_KthToLast.getKthToLast
 
-class _2_2_KthToLastTest extends Specification {
+@Unroll class _2_2_KthToLastTest extends Specification {
     /*@formatter:off*/
     def 'kthToLast?'() {
         expect: source.eachWithIndex { Object entry, int i ->

@@ -3,8 +3,7 @@ package pap.lorinc.algos
 import spock.genesis.Gen
 import spock.lang.Specification
 
-import static pap.lorinc.algos.GcdAndLcm.gcd
-import static pap.lorinc.algos.GcdAndLcm.lcm
+import static pap.lorinc.algos.GcdAndLcm.*
 import static pap.lorinc.algos.helpers.Numbers.canDivide
 
 class GcdAndLcmTest extends Specification {

@@ -2,8 +2,7 @@ package pap.lorinc.algos.sandbox
 
 import spock.lang.Specification
 
-import java.time.Month
-import java.time.MonthDay
+import java.time.*
 
 import static java.time.Month.*
 import static pap.lorinc.algos.sandbox.Zodiac.Values.*

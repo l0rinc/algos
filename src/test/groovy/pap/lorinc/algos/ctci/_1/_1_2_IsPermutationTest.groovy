@@ -1,13 +1,13 @@
 package pap.lorinc.algos.ctci._1
 
-import spock.lang.Specification
+import spock.lang.*
 
 import static pap.lorinc.algos.ctci._1._1_2_IsPermutation.isPermutation
 
-class _1_2_IsPermutationTest extends Specification {
+@Unroll class _1_2_IsPermutationTest extends Specification {
     /*@formatter:off*/
     def 'IsPermutation?'() {
-        expect: isPermutation(original.collect(), candidate.collect()) == result
+        expect: isPermutation(original.toList(), candidate.toList()) == result
         where:  original  | candidate || result
                 '1234'    | '3142'    || true
                 '1234567' | '5371624' || true

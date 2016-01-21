@@ -3,7 +3,7 @@ package pap.lorinc.algos.ctci._1
 /** Determine if two strings are each other's permutation */
 class _1_2_IsPermutation {
     static isPermutation(List original, List candidate) {
-        def linearithmic = isPermutation_Linearithmic(original.toList(), candidate.toList()) // avoid mutating the originals
+        def linearithmic = isPermutation_Linearithmic(original.toList(), candidate.toList()) /* avoid mutating the originals */
         def linear = isPermutation_Linear(original, candidate)
 
         assert linearithmic == linear

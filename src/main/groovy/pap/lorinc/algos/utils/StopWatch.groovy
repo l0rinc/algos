@@ -1,7 +1,6 @@
 package pap.lorinc.algos.utils
 
-import java.time.Duration
-import java.time.Instant
+import java.time.*
 
 class StopWatch {
     static List run(Closure closure) {

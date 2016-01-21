@@ -1,8 +1,7 @@
 package pap.lorinc.algos
 
 import spock.genesis.Gen
-import spock.lang.Specification
-import spock.lang.Unroll
+import spock.lang.*
 
 @Unroll class TriangularCollectionTest extends Specification {
     /*@formatter:off*/

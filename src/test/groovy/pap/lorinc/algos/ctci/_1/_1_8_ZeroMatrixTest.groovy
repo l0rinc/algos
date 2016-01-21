@@ -1,10 +1,10 @@
 package pap.lorinc.algos.ctci._1
 
-import spock.lang.Specification
+import spock.lang.*
 
 import static pap.lorinc.algos.ctci._1._1_8_ZeroMatrix.zeroOutRowsAndColumns
 
-class _1_8_ZeroMatrixTest extends Specification {
+@Unroll class _1_8_ZeroMatrixTest extends Specification {
     /*@formatter:off*/
     def 'rotate?'() {
         expect: zeroOutRowsAndColumns(matrix as int[][]) == result

@@ -1,10 +1,10 @@
 package pap.lorinc.algos.ctci._1
 
-import spock.lang.Specification
+import spock.lang.*
 
 import static pap.lorinc.algos.ctci._1._1_5_EditDistance.isCloseEnough
 
-class _1_5_EditDistanceTest extends Specification {
+@Unroll class _1_5_EditDistanceTest extends Specification {
     /*@formatter:off*/
     def 'isCloseEnough?'() {
         expect: isCloseEnough(a, b) == isCloseEnough
@@ -22,7 +22,8 @@ class _1_5_EditDistanceTest extends Specification {
                 'pale'  | 'pala' || true
 
                 'pale'  | 'bake' || false
-                'pale'  | 'pak'  || false
+                'pale'  | 'pa'   || false
+                'pa'    | 'pale' || false
     }
     /*@formatter:on*/
 }

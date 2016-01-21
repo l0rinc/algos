@@ -1,8 +1,7 @@
 package pap.lorinc.algos
 
 import spock.genesis.generators.values.LongGenerator
-import spock.lang.Specification
-import spock.lang.Unroll
+import spock.lang.*
 
 import static pap.lorinc.algos.Factorization.getFactors
 import static pap.lorinc.algos.FactorizationFormatter.formatFactors
