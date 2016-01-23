@@ -29,7 +29,7 @@ class Node<T> implements Iterable<Node<T>> {
     @Override Iterator<Node<T>> iterator() {
         new Iterator<Node<T>>() {
             def previous = Node.this.addBefore(null)
-            @Override boolean hasNext() { previous.next.hasNext() }
+            @Override boolean hasNext() { previous.hasNext() && previous.next.hasNext() }
             @Override Node<T> next() { previous = previous.next }
         }
     }
