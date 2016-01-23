@@ -2,10 +2,9 @@ package pap.lorinc.algos.ctci._2
 
 /** Delete the kth element from a linked list */
 class _2_3_DeleteNode {
-    /** Complexity: O(1) */
+    /** Complexity: O(index) */
     static deleteNode(Node head, int index) {
-        index.times { head = head.next }
-        delete(head)
+        delete(head[index])
     }
     static delete(Node head) {
         head.replace(head.next)
