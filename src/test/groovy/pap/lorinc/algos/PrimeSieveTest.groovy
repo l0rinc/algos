@@ -30,7 +30,7 @@ import static pap.lorinc.algos.PrimeSieve.getPrimesUntil
     private static Collection<Collection<Integer>> primeListGenerator() {
         def sizes = (Gen.integer(0, RANGE_END) * ITERATIONS).collect()
         sizes.collect { size ->
-            (2..size).findAll { Numbers.isProbablePrime(it as long, 100 as byte) }
+            (2..size).findAll { Numbers.isProbablePrime(it as long, 200 as short) }
         }
     }
 }

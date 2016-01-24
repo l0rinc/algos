@@ -48,7 +48,7 @@ public final class Numbers {
      *   b^(p-1) mod p ≡ 1
      * }</pre>
      */
-    public static boolean isProbablePrime(long number, byte probability) {
+    public static boolean isProbablePrime(long number, short probability) {
         assertPositive(number, probability);
 
         if (number < 2) return false;

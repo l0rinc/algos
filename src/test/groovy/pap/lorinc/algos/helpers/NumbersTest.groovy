@@ -57,7 +57,7 @@ class NumbersTest extends Specification {
         then:   actual == expected
 
         where:  range = 2..1_000_000
-                probability = 100 as byte
+                probability = 200 as short
     }
 
     def 'random?'(int start, int end) {
