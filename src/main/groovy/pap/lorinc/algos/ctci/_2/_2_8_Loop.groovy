@@ -18,21 +18,11 @@ class _2_8_Loop {
     static getLoopStart(Node head, Node intersection) {
         if (!intersection.hasNext()) return Node.SENTINEL
 
-        Node targetHead = moveLoopToStart(head, intersection)
+        def targetHead = intersection.next
         while (!targetHead.is(head)) {
             head = head.next
             targetHead = targetHead.next
         }
         targetHead
-    }
-    static moveLoopToStart(Node head, Node intersection) {
-        getLoopSize(intersection).times { head = head.next }
-        head
-    }
-    static getLoopSize(Node head) {
-        def i = 1
-        for (def it = head.next.iterator(); it.next() != head;)
-            i++
-        i
     }
 }
