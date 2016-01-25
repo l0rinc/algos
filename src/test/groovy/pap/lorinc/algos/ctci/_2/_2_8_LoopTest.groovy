@@ -36,7 +36,7 @@ import static pap.lorinc.algos.ctci._2._2_8_Loop.loopStart
     /*@formatter:on*/
 
     def createList(List prefix, Node loop) {
-        if (loop.hasNext()) loop.last().next = loop
+        if (loop.isValid()) loop.last().next = loop
         prefix.reverse().inject(loop) { Node head, value -> head.addBefore(value) }
     }
 }

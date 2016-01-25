@@ -7,8 +7,8 @@ class _2_5_SumLists {
         def (reverse1, reverse2) = [reverse(head1), reverse(head2)]
 
         int carry = 0
-        def result = Node.SENTINEL
-        while (reverse1?.hasNext() || reverse2?.hasNext()) {
+        def result = Node.END_SENTINEL
+        while (reverse1?.isValid() || reverse2?.isValid()) {
             def sum = carry + valueOrZero(reverse1) + valueOrZero(reverse2)
             result = result.addBefore(sum % 10)
             carry = sum / 10
@@ -20,5 +20,5 @@ class _2_5_SumLists {
         result
     }
     static valueOrZero(Node node) { node?.value ?: 0 }
-    static reverse(Node head) { head.inject(Node.SENTINEL) { Node h, Node n -> h.addBefore(n.value) } }
+    static reverse(Node head) { head.inject(Node.END_SENTINEL) { Node h, Node n -> h.addBefore(n.value) } }
 }

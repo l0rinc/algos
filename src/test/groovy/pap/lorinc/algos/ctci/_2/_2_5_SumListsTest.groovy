@@ -2,8 +2,8 @@ package pap.lorinc.algos.ctci._2
 
 import spock.lang.*
 
-import static _2_5_SumLists.*
 import static java.lang.Math.*
+import static pap.lorinc.algos.ctci._2._2_5_SumLists.*
 
 @Unroll class _2_5_SumListsTest extends Specification {
     /*@formatter:off*/

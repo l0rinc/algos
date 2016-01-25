@@ -24,7 +24,7 @@ class _2_4_Partition {
                 default: throw new IllegalArgumentException("${current.value <=> pivot}")
             }
 
-        moreTail.next = Node.SENTINEL
+        moreTail.next = Node.END_SENTINEL
         equalTail.next = moreHead.next
         lessTail.next = equalHead.next
 

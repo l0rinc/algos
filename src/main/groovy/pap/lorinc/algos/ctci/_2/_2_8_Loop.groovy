@@ -13,10 +13,10 @@ class _2_8_Loop {
             if (slow.is(fast.next()))
                 return slow
         }
-        Node.SENTINEL
+        Node.END_SENTINEL
     }
     static getLoopStart(Node head, Node intersection) {
-        if (!intersection.hasNext()) return Node.SENTINEL
+        if (!intersection.isValid()) return Node.END_SENTINEL
 
         def targetHead = intersection.next
         while (!targetHead.is(head)) {

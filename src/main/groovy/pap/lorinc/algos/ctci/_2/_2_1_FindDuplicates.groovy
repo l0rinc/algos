@@ -14,7 +14,7 @@ class _2_1_FindDuplicates {
     /** Complexity: O(size**2) */
     static removeDuplicates_Squared(Node head) {
         for (def node : head)
-            for (def comparand = node.next; comparand.hasNext();)
+            for (def comparand = node.next; comparand.isValid();)
                 if (node != comparand) comparand = comparand.next
                 else comparand.replace(comparand.next)
         head
@@ -23,7 +23,7 @@ class _2_1_FindDuplicates {
     /** Complexity: O(size), but needs same amount of space */
     static removeDuplicates_Linear(Node head) {
         Set seen = []
-        for (def node = head; node.hasNext();)
+        for (def node = head; node.isValid();)
             if (seen.add(node.value)) node = node.next
             else node.replace(node.next)
         head
