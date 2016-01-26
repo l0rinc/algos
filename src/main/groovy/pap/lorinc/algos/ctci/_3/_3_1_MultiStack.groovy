@@ -1,0 +1,42 @@
+package pap.lorinc.algos.ctci._3
+
+/** Simulate multiple stacks with one array */
+class _3_1_MultiStack {
+    static createMultiStack(int numberOfStacks, int stackSizes) {
+        new MultiStack(numberOfStacks, stackSizes)
+    }
+}
+
+class MultiStack<T> {
+    private T[] values
+    private int[] sizes
+    private int elementCount
+
+    def MultiStack(int numberOfStacks, int stackSizes) {
+        this.values = new T[numberOfStacks * stackSizes]
+        this.sizes = new int[numberOfStacks]
+        this.elementCount = stackSizes
+    }
+
+    void push(int id, T value) {
+        sizes[id]++
+        values[getLastIndex(id)] = value
+    }
+    T peek(int id) { values[getLastIndex(id)] }
+    T pop(int id) {
+        def index = getLastIndex(id)
+        def val = values[index]
+        values[index] = null
+        sizes[id]--
+        val
+    }
+    boolean isEmpty(int id) { getSize(id) == 0 }
+
+    private getLastIndex(int id) {
+        def offset = validateId(id) * elementCount
+        offset + getSize(id) - 1
+    }
+    private getSize(int id) { assertValid(0..elementCount, sizes[validateId(id)]) }
+    private validateId(int id) { assertValid(0..<sizes.size(), id) }
+    private assertValid(IntRange range, int value) { assert range.contains(value); value }
+}
