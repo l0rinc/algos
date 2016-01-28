@@ -1,4 +1,5 @@
 package pap.lorinc.algos.ctci._3
+
 /** Create stack with O(1) minimum */
 class _3_2_MinStack {
     static createMinStack() { new MinStack() }
