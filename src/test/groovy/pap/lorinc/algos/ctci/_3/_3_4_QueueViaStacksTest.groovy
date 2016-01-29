@@ -3,15 +3,14 @@ package pap.lorinc.algos.ctci._3
 import spock.lang.Specification
 
 import static java.lang.Math.PI
-import static pap.lorinc.algos.ctci._3._3_4_QueueViaStacks.createQueueViaStacks
 
 class _3_4_QueueViaStacksTest extends Specification {
     /*@formatter:off*/
-    def 'Queue?'() {
+    def 'queueViaStacks?'() {
         given:  def source = "$PI".toList()
 
         when:   'a new queue is empty'
-                def queue = createQueueViaStacks()
+                def queue = new QueueViaStacks()
         then:   queue.empty
 
         when:   'consuming a queue yields the correct values'

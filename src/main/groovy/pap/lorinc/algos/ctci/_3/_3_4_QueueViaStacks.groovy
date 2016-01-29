@@ -3,10 +3,6 @@ package pap.lorinc.algos.ctci._3
 import groovy.transform.ToString
 
 /** Create a queue using two stacks */
-class _3_4_QueueViaStacks {
-    static createQueueViaStacks() { new QueueViaStacks() }
-}
-
 @ToString(includes = 'head', includePackage = false)
 class QueueViaStacks<T> {
     private main = new Stack<T>()

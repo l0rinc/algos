@@ -3,10 +3,6 @@ package pap.lorinc.algos.ctci._3
 import groovy.transform.ToString
 
 /** Chain stacks, once they're full */
-class _3_3_ChainedStacks {
-    static createChainedStack(int capacity) { new ChainedStack(capacity) }
-}
-
 @ToString(includes = 'stacks', includePackage = false)
 class ChainedStack<T> {
     private final List<List<T>> stacks = []

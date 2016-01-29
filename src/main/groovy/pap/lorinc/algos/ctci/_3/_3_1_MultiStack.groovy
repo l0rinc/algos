@@ -1,12 +1,6 @@
 package pap.lorinc.algos.ctci._3
 
 /** Simulate multiple stacks with one array */
-class _3_1_MultiStack {
-    static createMultiStack(int numberOfStacks, int capacity) {
-        new MultiStack(numberOfStacks, capacity)
-    }
-}
-
 class MultiStack<T> {
     private T[] values
     private int[] sizes

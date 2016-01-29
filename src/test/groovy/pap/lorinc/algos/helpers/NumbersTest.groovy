@@ -2,8 +2,7 @@ package pap.lorinc.algos.helpers
 
 import spock.genesis.Gen
 import spock.genesis.generators.values.LongGenerator
-import spock.lang.Ignore
-import spock.lang.Specification
+import spock.lang.*
 
 import static pap.lorinc.algos.sandbox.RandomGeneratorTest.hasUniformDistribution
 

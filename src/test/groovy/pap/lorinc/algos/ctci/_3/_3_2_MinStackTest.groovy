@@ -3,7 +3,6 @@ package pap.lorinc.algos.ctci._3
 import spock.lang.Specification
 
 import static java.lang.Math.*
-import static _3_2_MinStack.createMinStack
 
 class _3_2_MinStackTest extends Specification {
     /*@formatter:off*/
@@ -11,7 +10,7 @@ class _3_2_MinStackTest extends Specification {
         given:  def source = "$PI$E".toList()
 
         when:   'a new stack is empty'
-                def stack = createMinStack()
+                def stack = new MinStack()
         then:   stack.empty
 
         when:   'consuming a stack yields the correct value and min'
