@@ -2,7 +2,8 @@ package pap.lorinc.algos.ctci._3
 
 /** Sort a stack using another one */
 class SortableStack<T> extends Stack<T> {
-    void sort() { /* Selection sort */
+    /** Complexity: O(size**2), uses O(size) additional space (+1 stack) */
+    void sort() { /** Selection sort */
         for (i in size()..1) {
             def (max, count) = [peek(), i]
             moveToTempAndBack({ count-- > 0 },
@@ -12,12 +13,14 @@ class SortableStack<T> extends Stack<T> {
         }
     }
 
+    /** Complexity: O(size) */
     private size() {
         def size = 0
         moveToTempAndBack({ !empty }, { ++size; true }, {}, { true })
         size
     }
 
+    /** Complexity: O(size) */
     private moveToTempAndBack(Closure<Boolean> shouldMove,
                               Closure<Boolean> shouldPushTo,
                               Closure betweenTransfers,

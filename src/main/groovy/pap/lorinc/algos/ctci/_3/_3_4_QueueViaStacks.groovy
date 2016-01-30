@@ -13,6 +13,7 @@ class QueueViaStacks<T> {
     T remove() { move(main, reverse).pop() }
     boolean isEmpty() { main.empty && reverse.empty }
 
+    /** Complexity: O(from.size) */
     private static move(Stack<T> from, Stack<T> to) {
         while (!from.empty)
             to.push(from.pop())
