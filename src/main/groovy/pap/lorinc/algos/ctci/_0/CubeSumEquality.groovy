@@ -15,12 +15,12 @@ class CubeSumEquality {
     }
 
     static collectSumPairEntries() {
-        def sumMap = [:]
+        def sumMap = [:].withDefault { [] }
         def cubes = RANGE.collectEntries { [(it): it**3] }
         cubes.each { a, a3 ->
             cubes.each { b, b3 ->
                 def sum = a3 + b3
-                sumMap[sum] = sumMap.getOrDefault(sum, []) + [[a, b]]
+                sumMap[sum] = sumMap[sum] + [[a, b]]
             }
         }
         sumMap
