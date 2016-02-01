@@ -30,8 +30,7 @@ public final class Heap<T extends Comparable<?>> {
             if (!isValidIndex(leftIndex)) break
 
             def childIndex = selectChildIndex(leftIndex, rightIndex)
-            if (elems[childIndex] > elems[elemIndex])
-                elems.swap(elemIndex, childIndex)
+            (elems[childIndex] > elems[elemIndex]) && elems.swap(elemIndex, childIndex)
             elemIndex = childIndex
         }
     }

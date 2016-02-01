@@ -7,10 +7,8 @@ class _2_7_Intersection {
     static intersection(Node head1, Node head2) {
         (head1, head2) = alignEnds(head1, head2)
         while (head1.isValid())
-            if (head1.is(head2))
-                return head1
-            else
-                (head1, head2) = [head1.next, head2.next]
+            if (head1.is(head2)) return head1
+            else (head1, head2) = [head1.next, head2.next]
 
         Node.END_SENTINEL
     }

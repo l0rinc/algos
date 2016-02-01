@@ -21,8 +21,7 @@ class SecretSanta {
         def (range, all, ok) = [0..<n, 0, 0]
         new PermutationGenerator(range).each { List p ->
             all++
-            if (range.every { i -> i != p[i] })
-                ok++
+            range.every { i -> i != p[i] } && ok++
         }
         [ok, all]
     }

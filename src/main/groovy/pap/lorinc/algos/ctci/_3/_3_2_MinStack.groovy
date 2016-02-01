@@ -5,13 +5,11 @@ class MinStack<T> extends Stack<T> {
     private final mins = new Stack<T>()
 
     @Override void push(T value) {
-        if (mins.empty || (value <= peekMin())) /* equal elements have to be repeated */
-            mins.push(value)
+        (mins.empty || (value <= peekMin())) && mins.push(value) /* equal elements have to be repeated */
         super.push(value)
     }
     @Override T pop() {
-        if (peek() == peekMin())
-            mins.pop()
+        (peek() == peekMin()) && mins.pop()
         super.pop()
     }
     T peekMin() { mins.peek() }

@@ -18,10 +18,8 @@ class _1_5_EditDistance {
             if (a[i] == b[j]) {
                 i++
                 j++
-            } else if (a[i + 1] == b[j])
-                i++
-            else if (a[i] == b[j + 1])
-                j++
+            } else if (a[i + 1] == b[j]) i++
+            else if (a[i] == b[j + 1]) j++
             else if (!editsFound && (a[i + 1] == b[j + 1])) {
                 editsFound = true
                 i++

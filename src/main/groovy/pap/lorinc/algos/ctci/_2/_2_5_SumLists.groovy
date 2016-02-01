@@ -15,8 +15,7 @@ class _2_5_SumLists {
 
             (reverse1, reverse2) = [reverse1?.next, reverse2?.next]
         }
-        if (carry > 0) result = result.addBefore(carry)
-
+        (carry > 0) && (result = result.addBefore(carry))
         result
     }
     static valueOrZero(Node node) { node?.value ?: 0 }

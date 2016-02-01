@@ -23,8 +23,7 @@ class StringPermutationOccurrence {
         def chunkHash = charSetHash(text[0..<wordLength])
         for (pos in 0..<(text.size() - wordLength)) {
             def chunk = { text[pos..<(pos + wordLength)] }
-            if (isPermutation(chunkHash, wordHash, chunk, sortedWord))
-                closure(pos, chunk())
+            isPermutation(chunkHash, wordHash, chunk, sortedWord) && closure(pos, chunk())
 
             chunkHash = mergeHashes(chunkHash,
                                     charSetHash(text[pos]),
