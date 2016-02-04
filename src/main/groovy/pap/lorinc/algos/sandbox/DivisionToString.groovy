@@ -1,22 +1,22 @@
 package pap.lorinc.algos.sandbox
 
 import groovy.transform.ToString
-import jdk.nashorn.internal.ir.annotations.Immutable
 
-/* Given two integers, represent their ratio as (repeating?) decimals */
+import static java.lang.Math.abs
+
+/* Given two integers, represent their ratio as (repeating) decimals */
 class DivisionToString {
     static toString(int dividend, int divisor) {
         if (divisor == 0) return null
 
-        def (LinkedHashMap steps, LinkedList results, int currentStep) = [[(0): -1], [], 0]
-        for (step in getSteps(dividend, divisor)) {
+        def isNegative = (dividend < 0) ^ (divisor < 0)
+        def (Map history, LinkedList results, int distance) = [[(0): -1], [], 1]
+        for (step in getSteps(abs(dividend), abs(divisor))) {
             results += step.ratio
 
-            def previousStep = steps[step.next]
-            steps[step.next] = ++currentStep
-
-            if (previousStep != null)
-                return toString(results, previousStep)
+            def previousStep = history[step.next]
+            if (previousStep == null) history[step.next] = distance++
+            else return toString(results, previousStep, isNegative)
         }
     }
     static getSteps(int dividend, int divisor) {
@@ -30,17 +30,18 @@ class DivisionToString {
             }
         }
     }
-    static toString(LinkedList results, int repetitionStart) {
+    static toString(LinkedList<Object> results, int repetitionStart, boolean negative) {
         if (repetitionStart >= 0) {
             results.add(repetitionStart, '(')
-            results.add(')')
+            results.addLast(')')
         }
         if (results.size() > 1) results.add(1, '.')
+        if (negative) results.addFirst('-')
         results.join()
     }
 }
 
-@Immutable @ToString class DivisionStep {
+@ToString class DivisionStep {
     int ratio, next
 
     DivisionStep(int dividend, int divisor) {
