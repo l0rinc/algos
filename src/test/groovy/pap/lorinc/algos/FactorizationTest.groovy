@@ -8,7 +8,6 @@ import static pap.lorinc.algos.FactorizationFormatter.formatFactors
 import static pap.lorinc.algos.FactorizationValidation.validate
 
 @Unroll class FactorizationTest extends Specification {
-    private static int ITERATIONS = 5
     private static long RANGE_END = Long.MAX_VALUE
 
     /*@formatter:off*/
@@ -31,7 +30,7 @@ import static pap.lorinc.algos.FactorizationValidation.validate
     def 'Random numbers of different magnitude are factored to their prime multiples'(long number) {
         when:   def factors = getFactors(number)
         then:   validate(factors, number)
-        where:  number << new LongGenerator(0, RANGE_END) * ITERATIONS
+        where:  number << new LongGenerator(0, RANGE_END) * 1
     }
     /*@formatter:on*/
 }

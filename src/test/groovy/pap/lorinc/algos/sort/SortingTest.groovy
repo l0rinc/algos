@@ -5,7 +5,7 @@ import spock.lang.Specification
 
 class SortingTest extends Specification {
     static final int ITERATIONS = 3
-    static final int SIZE = 20000
+    static final int SIZE = 10000
 
     /*@formatter:off*/
     def 'Insertion sort?'() {

@@ -5,8 +5,8 @@
   (:use pap.lorinc.algos.multi_sum.impls.triple_sum))
 
 (def debug false)
-(def elems-count 200)
-(def elems-range 500)
+(def elems-count 100)
+(def elems-range 200)
 (assert (<= elems-count elems-range))
 
 ; ---------------------------------------------------- ;

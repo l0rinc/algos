@@ -7,7 +7,7 @@ import spock.lang.*
 import static pap.lorinc.algos.sandbox.RandomGeneratorTest.hasUniformDistribution
 
 class NumbersTest extends Specification {
-    private static int ITERATIONS = 10_000
+    private static int ITERATIONS = 100
 
     /*@formatter:off*/
     def "#number^#exponent = #result mod #modulo"(int number, int exponent, int modulo, long result) {
@@ -56,7 +56,7 @@ class NumbersTest extends Specification {
                 def actual = range.findAll { Numbers.isProbablePrime(it as long, probability) }
         then:   actual == expected
 
-        where:  range = 2..1_000_000
+        where:  range = 2..100_000
                 probability = 200 as short
     }
 
