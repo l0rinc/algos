@@ -3,7 +3,7 @@ package pap.lorinc.algos.ctci._4
 import java.util.stream.Stream
 
 class Graph {
-    private List<BitSet> neighbours = [].withDefault { new BitSet(0) }
+    protected List<BitSet> neighbours = [].withDefault { new BitSet(0) }
 
     def vertexCount() { neighbours.findAll().size() }                        /* TODO cache? */
     def edgeCount() { neighbours.findAll().sum(0) { it.cardinality() } / 2 } /* TODO cache? */

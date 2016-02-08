@@ -1,7 +1,7 @@
 package pap.lorinc.algos.ctci._4
 
 trait Search {
-    void search(Graph graph, int vertex, Closure<Boolean> visit) {
+    def search(Graph graph, int vertex, Closure<Boolean> visit) {
         def (marked, chain) = [new BitSet(), new ArrayDeque<Integer>()]
         marked.set(vertex)
 
@@ -13,7 +13,9 @@ trait Search {
                     marked.set(it)
                  }
 
-            if (!visit(vertex) || chain.empty) return
+            if (!visit(vertex)) return vertex
+            else if (chain.empty) return null
+
             vertex = chain.removeFirst()
         }
     }
