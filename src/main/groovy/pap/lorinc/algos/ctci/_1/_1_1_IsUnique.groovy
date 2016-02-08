@@ -7,9 +7,10 @@ class _1_1_IsUnique {
     static isUnique(List values) {
         def squared = isUnique_Squared(values.toList())
         def linearithmic = isUnique_Linearithmic(values.toList())
+        def linearLinear = isUnique_Linear_Linear(values.toList())
         def linear = isUnique_Linear(values.toList())
 
-        assert [squared, linearithmic].every { it == linear }
+        assert [squared, linearithmic, linearLinear].every { it == linear }
 
         linear
     }
@@ -32,8 +33,19 @@ class _1_1_IsUnique {
     }
 
     /** Complexity: O(values.size()), but needs same amount of space */
-    static isUnique_Linear(List values) {
+    static isUnique_Linear_Linear(List values) {
         Set seen = []
         values.every { seen.add(it) }
+    }
+
+    /** Complexity: O(values.size()), O(1) space */
+    static isUnique_Linear(List values) {
+        def seen = new BitSet()
+        values.every {
+            int c = it
+            def result = seen[c]
+            seen.set(c)
+            !result
+        }
     }
 }
