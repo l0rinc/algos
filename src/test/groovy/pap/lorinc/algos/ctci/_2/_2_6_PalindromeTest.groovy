@@ -1,5 +1,6 @@
 package pap.lorinc.algos.ctci._2
 
+import pap.lorinc.algos.ctci._2.utils.Node
 import spock.lang.*
 
 import static pap.lorinc.algos.ctci._2._2_6_Palindrome.isPalindrome_withStack

@@ -1,5 +1,6 @@
 package pap.lorinc.algos.ctci._3
 
+import pap.lorinc.algos.ctci._3.utils.Stack
 import spock.lang.Specification
 
 import static java.lang.Math.PI

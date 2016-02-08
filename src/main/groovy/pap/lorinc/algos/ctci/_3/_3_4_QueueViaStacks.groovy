@@ -1,6 +1,7 @@
 package pap.lorinc.algos.ctci._3
 
 import groovy.transform.ToString
+import pap.lorinc.algos.ctci._3.utils.Stack
 
 /** Create a queue using two stacks */
 @ToString(includes = 'head', includePackage = false)

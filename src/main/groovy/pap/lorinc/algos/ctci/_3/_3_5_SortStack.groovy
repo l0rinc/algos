@@ -1,5 +1,7 @@
 package pap.lorinc.algos.ctci._3
 
+import pap.lorinc.algos.ctci._3.utils.Stack
+
 /** Sort a stack using another one */
 class SortableStack<T> extends Stack<T> {
     /** Complexity: O(size**2), uses O(size) additional space (+1 stack) */

@@ -1,4 +1,4 @@
-package pap.lorinc.algos.ctci._2
+package pap.lorinc.algos.ctci._2.utils
 
 import groovy.transform.*
 

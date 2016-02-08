@@ -1,7 +1,7 @@
-package pap.lorinc.algos.ctci._3
+package pap.lorinc.algos.ctci._3.utils
 
 import groovy.transform.*
-import pap.lorinc.algos.ctci._2.Node
+import pap.lorinc.algos.ctci._2.utils.Node
 
 @EqualsAndHashCode(includes = 'head') @ToString(includes = 'head', includePackage = false)
 class Queue<T> {

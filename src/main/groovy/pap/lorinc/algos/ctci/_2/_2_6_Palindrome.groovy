@@ -1,5 +1,7 @@
 package pap.lorinc.algos.ctci._2
 
+import pap.lorinc.algos.ctci._2.utils.Node
+
 import static pap.lorinc.algos.ctci._2._2_5_SumLists.reverse
 
 /** Return whether a linkedList represents a palindrome */

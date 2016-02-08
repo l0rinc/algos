@@ -1,4 +1,4 @@
-package pap.lorinc.algos.ctci._4
+package pap.lorinc.algos.ctci._4.utils
 
 class DiGraph extends Graph {
     @Override def edgeCount() { neighbours.findAll().sum(0) { it.cardinality() } } /* TODO cache? */

@@ -1,5 +1,7 @@
 package pap.lorinc.algos.ctci._2
 
+import pap.lorinc.algos.ctci._2.utils.Node
+
 /** Find the start of loop in a linked list */
 class _2_8_Loop {
     static loopStart(Node head) {

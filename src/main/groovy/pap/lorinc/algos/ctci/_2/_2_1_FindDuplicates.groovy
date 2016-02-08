@@ -1,5 +1,7 @@
 package pap.lorinc.algos.ctci._2
 
+import pap.lorinc.algos.ctci._2.utils.Node
+
 /** Remove duplicates from a linked list */
 class _2_1_FindDuplicates {
     static removeDuplicates(Node head) {

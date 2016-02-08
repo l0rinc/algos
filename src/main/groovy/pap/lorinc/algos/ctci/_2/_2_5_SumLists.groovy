@@ -1,5 +1,7 @@
 package pap.lorinc.algos.ctci._2
 
+import pap.lorinc.algos.ctci._2.utils.Node
+
 /** Calculate the sum of two numbers, represented as a linked list of decimal digits */
 class _2_5_SumLists {
     /** Complexity: O(size1 + size2), uses same amount of space */

@@ -1,4 +1,4 @@
-package pap.lorinc.algos.ctci._4
+package pap.lorinc.algos.ctci._4.utils
 
 import java.util.stream.Stream
 

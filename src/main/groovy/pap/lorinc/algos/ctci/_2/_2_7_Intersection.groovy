@@ -1,5 +1,7 @@
 package pap.lorinc.algos.ctci._2
 
+import pap.lorinc.algos.ctci._2.utils.Node
+
 import static java.lang.Math.abs
 
 /** Find the intersecting node of two linked lists */

@@ -1,5 +1,6 @@
 package pap.lorinc.algos.ctci._4
 
+import pap.lorinc.algos.ctci._4.utils.DiGraph
 import spock.lang.*
 
 import static pap.lorinc.algos.ctci._4.GraphTest.fill

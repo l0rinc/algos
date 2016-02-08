@@ -1,7 +1,7 @@
-package pap.lorinc.algos.ctci._3
+package pap.lorinc.algos.ctci._3.utils
 
 import groovy.transform.*
-import pap.lorinc.algos.ctci._2.Node
+import pap.lorinc.algos.ctci._2.utils.Node
 
 @EqualsAndHashCode @ToString(includePackage = false)
 class Stack<T> {

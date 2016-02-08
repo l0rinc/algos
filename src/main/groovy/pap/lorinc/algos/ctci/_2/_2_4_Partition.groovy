@@ -1,5 +1,7 @@
 package pap.lorinc.algos.ctci._2
 
+import pap.lorinc.algos.ctci._2.utils.Node
+
 /** Partition the elements of a linked list according to a given pivot */
 class _2_4_Partition {
     /** Complexity: O(size) */

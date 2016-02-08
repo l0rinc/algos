@@ -1,4 +1,4 @@
-package pap.lorinc.algos.ctci._4
+package pap.lorinc.algos.ctci._4.utils
 
 trait Search {
     def search(Graph graph, int vertex, Closure<Boolean> visit) {

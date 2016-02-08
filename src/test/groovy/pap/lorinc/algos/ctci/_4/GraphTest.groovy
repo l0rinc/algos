@@ -1,5 +1,6 @@
 package pap.lorinc.algos.ctci._4
 
+import pap.lorinc.algos.ctci._4.utils.*
 import spock.lang.*
 
 @Unroll class GraphTest extends Specification {

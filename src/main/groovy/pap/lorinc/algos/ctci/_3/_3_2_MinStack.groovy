@@ -1,5 +1,7 @@
 package pap.lorinc.algos.ctci._3
 
+import pap.lorinc.algos.ctci._3.utils.Stack
+
 /** Create stack with O(1) minimum */
 class MinStack<T> extends Stack<T> {
     private final mins = new Stack<T>()

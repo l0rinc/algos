@@ -1,5 +1,7 @@
 package pap.lorinc.algos.ctci._2
 
+import pap.lorinc.algos.ctci._2.utils.Node
+
 /** Return the kth element to last element from a linked list */
 class _2_2_KthToLast {
     static getKthToLast(Node head, int reverseIndex) {
