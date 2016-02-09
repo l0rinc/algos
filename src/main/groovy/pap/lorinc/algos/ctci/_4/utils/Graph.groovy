@@ -1,7 +1,10 @@
 package pap.lorinc.algos.ctci._4.utils
 
+import groovy.transform.EqualsAndHashCode
+
 import java.util.stream.Stream
 
+@EqualsAndHashCode(includes = 'neighbours', includeFields = true)
 class Graph {
     protected List<BitSet> neighbours = [].withDefault { new BitSet(0) }
 
