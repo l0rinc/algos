@@ -3,7 +3,7 @@ package pap.lorinc.algos.ctci._3.utils
 import groovy.transform.*
 import pap.lorinc.algos.ctci._2.utils.Node
 
-@EqualsAndHashCode @ToString(includePackage = false)
+@EqualsAndHashCode(includeFields = true) @ToString(includePackage = false)
 class Stack<T> {
     private Node<T> head = Node.END_SENTINEL
 

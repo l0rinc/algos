@@ -3,7 +3,7 @@ package pap.lorinc.algos.ctci._3.utils
 import groovy.transform.*
 import pap.lorinc.algos.ctci._2.utils.Node
 
-@EqualsAndHashCode(includes = 'head') @ToString(includes = 'head', includePackage = false)
+@EqualsAndHashCode(includes = 'head', includeFields = true) @ToString(includes = 'head', includePackage = false)
 class Queue<T> {
     private Node<T> head, tail
 

@@ -2,7 +2,7 @@ package pap.lorinc.algos.ctci._2.utils
 
 import groovy.transform.*
 
-@TupleConstructor @EqualsAndHashCode(includes = 'value') @ToString(includePackage = false)
+@TupleConstructor @EqualsAndHashCode(includes = 'value', includeFields = true) @ToString(includePackage = false)
 class Node<T> implements Iterable<Node<T>> {
     static final END_SENTINEL = new Node<>()
 
