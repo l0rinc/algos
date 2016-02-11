@@ -8,7 +8,9 @@ class BiNode<T> {
     BiNode<T> left, right
 
     static from(Map<T, List<T>> values, BiNode<T> node = getRoot(values)) {
-        def children = [] + values.getOrDefault(node?.value, [])
+        if (node?.value == null) return null
+
+        def children = [] + values.getOrDefault(node.value, [])
         switch (children.size()) {
             case 2: node.right = from(values, new BiNode(children[1])) /*noinspection GroovyFallthrough*/
             case 1: node.left = from(values, new BiNode(children[0])); break
