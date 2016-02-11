@@ -1,9 +1,8 @@
 package pap.lorinc.algos.ctci._4
 
-import pap.lorinc.algos.ctci._4.utils.Graph
+import pap.lorinc.algos.ctci._4.utils.BiNode
 import spock.lang.*
 
-import static pap.lorinc.algos.ctci._4.GraphTest.fill
 import static pap.lorinc.algos.ctci._4._4_2_MinimalTree.createBst
 
 @Unroll class _4_2_MinimalTreeTest extends Specification {
@@ -12,13 +11,13 @@ import static pap.lorinc.algos.ctci._4._4_2_MinimalTree.createBst
         expect: array.toSorted() == array.unique(false)
 
         when:   def bst = createBst(array)
-                def reference = fill(result, new Graph())
-        then:   bst == reference
+                def reference = BiNode.from(result)
+        then:   bst.toString() == reference.toString()
 
         where:
         array                                        || result
         []                                           || [:]
-        [0]                                          || [0:null]
+        [0]                                          || [0:[]]
         [0,1]                                        || [1:0]
         [0,1,2]                                      || [1:[0,2]]
         [0,1,2,3]                                    || [2:[1,3],1:0]

@@ -1,23 +1,18 @@
 package pap.lorinc.algos.ctci._4
 
-import pap.lorinc.algos.ctci._4.utils.Graph
+import pap.lorinc.algos.ctci._4.utils.BiNode
 
-/** Given a sorted, unique array, create a balanced BST (as a Graph) */
-class _4_2_MinimalTree<T> {
+/** Given a sorted, unique array, create a balanced BST */
+class _4_2_MinimalTree {
     /** Complexity: O(values.size()) */
-    static createBst(List<Integer> values) {
-        def graph = new Graph()
-        createBst(graph, values)
-        graph
-    }
-    static createBst(Graph graph, List<Integer> values) {
-        def middle = (values.size() >> 1)
-        for (children in [0..<middle, (middle + 1)..<values.size()])
-            connect(graph, values, middle, children)
-        values[middle]
-    }
-    private static connect(Graph graph, List<Integer> values, Integer middle, Range range) {
-        isInvalid(range) || graph.connect(values[middle], createBst(graph, values[range]))
+    static createBst(List<Integer> values, Range range = 0..<values.size()) {
+        if (isInvalid(range)) return null
+
+        def middle = middle(range)
+        new BiNode(values[middle],
+                   createBst(values, range.from..<middle),
+                   createBst(values, (middle + 1)..range.to))
     }
     private static isInvalid(Range range) { range.empty || range.reverse }
+    private static middle(IntRange range) { range.from + (range.size() >> 1) }
 }
