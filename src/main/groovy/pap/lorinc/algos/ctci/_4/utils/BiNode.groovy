@@ -6,6 +6,7 @@ import groovy.transform.*
 class BiNode<T> {
     T value
     BiNode<T> left, right
+    BiNode<T> parent
 
     static from(Map<T, List<T>> values, BiNode<T> node = getRoot(values)) {
         if (node?.value == null) return null
@@ -27,4 +28,14 @@ class BiNode<T> {
             default: throw new IllegalArgumentException('Not a tree!')
         }
     }
+    void setLeft(BiNode<T> left) {
+        left?.parent = this
+        this.left = left
+    }
+    void setRight(BiNode<T> right) {
+        right?.parent = this
+        this.right = right
+    }
+    private void setParent(BiNode<T> parent) {}
+    private void setValue(T value) {}
 }
