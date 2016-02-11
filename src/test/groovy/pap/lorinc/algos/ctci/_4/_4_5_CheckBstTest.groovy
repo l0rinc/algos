@@ -1,0 +1,33 @@
+package pap.lorinc.algos.ctci._4
+
+import pap.lorinc.algos.ctci._4.utils.BiNode
+import spock.lang.*
+
+import static pap.lorinc.algos.ctci._4._4_5_CheckBst.isBst
+
+@Unroll class _4_5_CheckBstTest extends Specification {
+    /*@formatter:off*/
+    def 'isBst from #tree?'() {
+        when:   def bst = BiNode.from(tree)
+        then:   isBst(bst) == result
+
+        where:
+        tree                          || result
+        [0:[]]                        || true
+        [1:[0]]                       || true
+        [1:[0,2]]                     || true
+        [2:[1,3],1:0]                 || true
+        [2:[1,4],1:0,4:3]             || true
+        [3:[1,5],1:[0,2],5:4]         || true
+        [3:[1,5],1:[0,2],5:[4,6]]     || true
+        [4:[2,6],2:[1,3],1:0,6:[5,7]] || true
+
+        [1:2]                         || false
+        [1:[null,0]]                  || false
+        [1:[2,0]]                     || false
+        [2:[1,3],1:5]                 || false
+        [2:[3,1],1:[0,4]]             || false
+        [3:[1,6],1:[0,2],6:[5,4]]     || false
+    }
+    /*@formatter:on*/
+}
