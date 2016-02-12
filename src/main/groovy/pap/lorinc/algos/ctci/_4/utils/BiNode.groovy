@@ -2,7 +2,7 @@ package pap.lorinc.algos.ctci._4.utils
 
 import groovy.transform.*
 
-@TupleConstructor @ToString(includePackage = false)
+@TupleConstructor @ToString(includePackage = false, excludes = 'parent')
 class BiNode<T> {
     T value
     BiNode<T> left, right
@@ -28,6 +28,9 @@ class BiNode<T> {
             default: throw new IllegalArgumentException('Not a tree!')
         }
     }
+    boolean getIsRightChild() { parent?.right == this }
+    boolean getIsLeftChild() { parent?.left == this }
+
     void setLeft(BiNode<T> left) {
         left?.parent = this
         this.left = left
@@ -36,6 +39,6 @@ class BiNode<T> {
         right?.parent = this
         this.right = right
     }
-    private void setParent(BiNode<T> parent) {}
-    private void setValue(T value) {}
+    private void setParent(BiNode<T> parent) { this.parent = parent }
+    private void setValue(T value) { this.value = value }
 }
