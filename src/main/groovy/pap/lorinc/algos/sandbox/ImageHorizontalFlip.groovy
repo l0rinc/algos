@@ -3,7 +3,7 @@ package pap.lorinc.algos.sandbox
 /** Given a strictly black-and-white image, flip it horizontally. */
 class ImageHorizontalFlip {
     static flipX(BitSet[] image, int width) {
-        BitSet[] clone = image.collect { it.clone() }
+        BitSet[] clone = image*.clone()
         flipX_inPlace(clone, width)
     }
     static flipX_inPlace(BitSet[] image, int width) {

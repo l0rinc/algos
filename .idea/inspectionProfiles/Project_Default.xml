@@ -405,7 +405,7 @@
     <inspection_tool class="GroovyAssignmentToMethodParameter" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="GroovyBreak" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="GroovyBusyWait" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="GroovyClassNamingConvention" enabled="true" level="WARNING" enabled_by_default="true">
+    <inspection_tool class="GroovyClassNamingConvention" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="m_regex" value="[A-Z][A-Za-z\d]*" />
       <option name="m_minLength" value="3" />
       <option name="m_maxLength" value="64" />
