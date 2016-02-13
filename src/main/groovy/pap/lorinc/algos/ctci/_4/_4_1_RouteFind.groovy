@@ -6,12 +6,11 @@ import pap.lorinc.algos.ctci._4.utils.DiGraph
 class _4_1_RouteFind {
     /** Complexity: O(graph.edgeCount()) */
     static isConnected(DiGraph graph, int v1, int v2) {
-        def (Set marked, Queue queue) = [[v1], [v1] as ArrayDeque]
+        def (Set marked, queue) = [[v1], [v1] as ArrayDeque]
         while (!queue.empty) {
-            def node = queue.remove()
+            def node = queue.removeFirst()
             if (node == v2) return true
-            marked[node] || graph.neighbours(node).each { queue.add(it) }
-            marked += node
+            graph.neighbors(node).each { marked.add(it) && queue.addLast(it) }
         }
         false
     }

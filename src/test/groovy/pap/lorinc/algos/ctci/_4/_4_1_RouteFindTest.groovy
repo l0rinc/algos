@@ -10,15 +10,12 @@ import static pap.lorinc.algos.ctci._4._4_1_RouteFind.isConnected
     /*@formatter:off*/
     def 'isConnected?'() {
         when:   def graph = fill(connections, new DiGraph())
-                def vertices = 0..<graph.vertexCount()
-        then:   vertices.each { int v1 ->
+        then:   for (v1 in graph.vertices) {
                     def cluster = clusters[v1]
-                    cluster.each { int v2 ->
+                    for (int v2 in cluster)
                         assert isConnected(graph,v1, v2)
-                    }
-                    (clusters.values().flatten() - cluster - v1).each { int v2 ->
+                    for (int v2 in (clusters.values().flatten() - cluster - v1))
                         assert !isConnected(graph, v1, v2)
-                    }
                 }
         where:
         connections                                          | clusters

@@ -1,22 +1,22 @@
 package pap.lorinc.algos.ctci._4.utils
 
 trait Search {
-    def search(Graph graph, int vertex, Closure<Boolean> visit) {
+    def search(DiGraph graph, int v, Closure<Boolean> visit) {
         def (marked, chain) = [new BitSet(), new ArrayDeque<Integer>()]
-        marked.set(vertex)
+        marked.set(v)
 
         while (true) {
-            graph.neighbours(vertex)
+            graph.neighbors(v)
                  .findAll { !marked[it] }
                  .each {
                     add(chain, it)
                     marked.set(it)
                  }
 
-            if (!visit(vertex)) return vertex
+            if (!visit(v)) return v
             else if (chain.empty) return null
 
-            vertex = chain.removeFirst()
+            v = chain.removeFirst()
         }
     }
 
