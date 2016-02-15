@@ -33,6 +33,6 @@ import static pap.lorinc.algos.ctci._4._4_6_Successor.successor
         Set<BiNode> nodes = [node]
         while (true)
             if (nodes.every { !nodes.add(it?.left) && !nodes.add(it?.right) })
-                return nodes.findAll { it != null }.sort { it.value }.collect()
+                return nodes.findAll().sort { it.value }.collect()
     }
 }
