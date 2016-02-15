@@ -34,8 +34,10 @@ import static pap.lorinc.algos.ctci._4._4_7_BuildOrder.buildOrder
         connections       | _
         [2:1,1:2]         | _
         [2:1,1:0,0:2]     | _
+        [2:1,1:0,0:1]     | _
         [3:2,2:1,1:0,0:2] | _
         [3:2,2:1,1:0,0:3] | _
+        [3:1,2:1,1:0,0:3] | _
     }
     /*@formatter:on*/
 }

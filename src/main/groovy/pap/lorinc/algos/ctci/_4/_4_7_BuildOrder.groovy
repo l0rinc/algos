@@ -18,6 +18,7 @@ class _4_7_BuildOrder {
         for (v2 in graph.neighbors(v1))
             if ((v1 != v2) && !results.contains(v2))
                 postOrderCollect(graph, v2, results, visited)
+        visited.clear()
         results.add(v1)
     }
 }
