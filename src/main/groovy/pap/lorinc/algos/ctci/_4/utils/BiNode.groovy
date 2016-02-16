@@ -28,6 +28,11 @@ class BiNode<T> {
             default: throw new IllegalArgumentException('Not a tree!')
         }
     }
+
+    def getSize(def node = this) {
+        !node ? 0
+              : 1 + getSize(node.left) + getSize(node.right)
+    }
     boolean getIsRightChild() { parent?.right == this }
     boolean getIsLeftChild() { parent?.left == this }
 
