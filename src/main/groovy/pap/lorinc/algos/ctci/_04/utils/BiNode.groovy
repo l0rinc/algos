@@ -46,4 +46,15 @@ class BiNode<T> {
     }
     private void setParent(BiNode<T> parent) { this.parent = parent }
     private void setValue(T value) { this.value = value }
+
+    boolean equals(o) {
+        if (this.is(o)) return true
+        else if (this.class != o.class) return false
+
+        BiNode that = (BiNode) o
+        (value == that.value
+        && left == that.left
+        && right == that.right)
+    }
+    int hashCode() { Objects.hash(value, left, right) }
 }

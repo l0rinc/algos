@@ -10,7 +10,7 @@ import static _04_08_FirstCommonAncestor.ancestor
     /*@formatter:off*/
     def 'ancestor from #tree?'() {
         when:   def nodes = collectNodes(BiNode.from(tree))
-        then:   nodes.each { n ->
+        then:   for (n in nodes) {
                     def pairs = [n, collectNodes(n.left), collectNodes(n.right)].findAll()
                     def groups = pairs.subsequences().findAll { it.size() == 2 }
                     groups*.combinations { n1, n2 ->
