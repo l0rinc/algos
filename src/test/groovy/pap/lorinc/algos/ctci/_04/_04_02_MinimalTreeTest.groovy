@@ -1,6 +1,6 @@
 package pap.lorinc.algos.ctci._04
 
-import pap.lorinc.algos.ctci._04.utils.BiNode
+import pap.lorinc.algos.ctci._04.utils.BiNodeBuilder
 import spock.lang.*
 
 import static _04_02_MinimalTree.createBst
@@ -11,7 +11,7 @@ import static _04_02_MinimalTree.createBst
         expect: array.toSorted() == array.unique(false)
 
         when:   def bst = createBst(array)
-                def reference = BiNode.from(result)
+                def reference = BiNodeBuilder.from(result)
         then:   bst.toString() == reference.toString()
 
         where:

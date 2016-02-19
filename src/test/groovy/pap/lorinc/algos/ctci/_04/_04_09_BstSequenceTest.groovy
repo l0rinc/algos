@@ -1,6 +1,6 @@
 package pap.lorinc.algos.ctci._04
 
-import pap.lorinc.algos.ctci._04.utils.BiNode
+import pap.lorinc.algos.ctci._04.utils.BiNodeBuilder
 import spock.lang.*
 
 import static _04_05_CheckBst.isBst
@@ -9,7 +9,7 @@ import static _04_09_BstSequence.sources
 @Unroll class _04_09_BstSequenceTest extends Specification {
     /*@formatter:off*/
     def 'bstSequence from #tree?'() {
-        when:   def bst = BiNode.from(tree)
+        when:   def bst = BiNodeBuilder.from(tree)
                 assert isBst(bst)
         then:   sources(bst) == result.toSet()
 

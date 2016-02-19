@@ -1,6 +1,6 @@
 package pap.lorinc.algos.ctci._04
 
-import pap.lorinc.algos.ctci._04.utils.BiNode
+import pap.lorinc.algos.ctci._04.utils.BiNodeBuilder
 import spock.lang.*
 
 import static _04_04_CheckBalanced.isBalanced
@@ -8,7 +8,7 @@ import static _04_04_CheckBalanced.isBalanced
 @Unroll class _04_04_CheckBalancedTest extends Specification {
     /*@formatter:off*/
     def 'isBalanced from #tree?'() {
-        when:   def bst = BiNode.from(tree)
+        when:   def bst = BiNodeBuilder.from(tree)
         then:   isBalanced(bst) == result
 
         where:

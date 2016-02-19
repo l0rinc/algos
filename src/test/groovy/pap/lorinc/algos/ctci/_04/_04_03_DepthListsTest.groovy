@@ -1,6 +1,6 @@
 package pap.lorinc.algos.ctci._04
 
-import pap.lorinc.algos.ctci._04.utils.BiNode
+import pap.lorinc.algos.ctci._04.utils.BiNodeBuilder
 import spock.lang.*
 
 import static _04_03_DepthLists.createDepthLists
@@ -8,7 +8,7 @@ import static _04_03_DepthLists.createDepthLists
 @Unroll class _04_03_DepthListsTest extends Specification {
     /*@formatter:off*/
     def 'createDepthLists from #tree?'() {
-        when:   def bst = BiNode.from(tree)
+        when:   def bst = BiNodeBuilder.from(tree)
         then:   createDepthLists(bst) == result
 
         where:

@@ -5,9 +5,49 @@ import groovy.transform.*
 @TupleConstructor @ToString(includePackage = false, excludes = 'parent')
 class BiNode<T> {
     T value
-    BiNode<T> left, right
-    BiNode<T> parent
+    BiNode<T> left, right, parent
 
+    private Integer sizeCache
+    def getSize(def node = this) {
+        node ? node.sizeCache ?: (node.sizeCache = 1 + getSize(node.left) + getSize(node.right))
+             : 0
+    }
+    private invalidateCaches() {
+        for (def node = this; node?.sizeCache != null; node = node.parent)
+            node.sizeCache = null
+    }
+
+    boolean getIsRightChild() { parent?.right == this }
+    boolean getIsLeftChild() { parent?.left == this }
+    void setLeft(BiNode<T> left) {
+        left?.parent = this
+        this.left = left
+        invalidateCaches()
+    }
+    void setRight(BiNode<T> right) {
+        right?.parent = this
+        this.right = right
+        invalidateCaches()
+    }
+    private void setParent(BiNode<T> parent) {
+        this.parent = parent
+        invalidateCaches()
+    }
+    private void setValue(T value) { this.value = value }
+
+    boolean equals(o) {
+        if (this.is(o)) return true
+        else if (this.class != o.class) return false
+
+        BiNode that = (BiNode) o
+        (value == that.value
+        && left == that.left
+        && right == that.right)
+    }
+    int hashCode() { Objects.hash(value, left, right) }
+}
+
+abstract class BiNodeBuilder<T> {
     static from(Map<T, List<T>> values, BiNode<T> node = getRoot(values)) {
         if (node?.value == null) return null
 
@@ -28,33 +68,4 @@ class BiNode<T> {
             default: throw new IllegalArgumentException('Not a tree!')
         }
     }
-
-    def getSize(def node = this) {
-        !node ? 0
-              : 1 + getSize(node.left) + getSize(node.right)
-    }
-    boolean getIsRightChild() { parent?.right == this }
-    boolean getIsLeftChild() { parent?.left == this }
-
-    void setLeft(BiNode<T> left) {
-        left?.parent = this
-        this.left = left
-    }
-    void setRight(BiNode<T> right) {
-        right?.parent = this
-        this.right = right
-    }
-    private void setParent(BiNode<T> parent) { this.parent = parent }
-    private void setValue(T value) { this.value = value }
-
-    boolean equals(o) {
-        if (this.is(o)) return true
-        else if (this.class != o.class) return false
-
-        BiNode that = (BiNode) o
-        (value == that.value
-        && left == that.left
-        && right == that.right)
-    }
-    int hashCode() { Objects.hash(value, left, right) }
 }

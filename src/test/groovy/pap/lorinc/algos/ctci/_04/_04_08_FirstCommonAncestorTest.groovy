@@ -1,6 +1,6 @@
 package pap.lorinc.algos.ctci._04
 
-import pap.lorinc.algos.ctci._04.utils.BiNode
+import pap.lorinc.algos.ctci._04.utils.BiNodeBuilder
 import spock.lang.*
 
 import static _04_06_SuccessorTest.collectNodes
@@ -9,7 +9,7 @@ import static _04_08_FirstCommonAncestor.ancestor
 @Unroll class _04_08_FirstCommonAncestorTest extends Specification {
     /*@formatter:off*/
     def 'ancestor from #tree?'() {
-        when:   def nodes = collectNodes(BiNode.from(tree))
+        when:   def nodes = collectNodes(BiNodeBuilder.from(tree))
         then:   for (n in nodes) {
                     def pairs = [n, collectNodes(n.left), collectNodes(n.right)].findAll()
                     def groups = pairs.subsequences().findAll { it.size() == 2 }

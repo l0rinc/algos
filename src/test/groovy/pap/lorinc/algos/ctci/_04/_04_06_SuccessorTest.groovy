@@ -1,6 +1,6 @@
 package pap.lorinc.algos.ctci._04
 
-import pap.lorinc.algos.ctci._04.utils.BiNode
+import pap.lorinc.algos.ctci._04.utils.*
 import spock.lang.*
 
 import static _04_06_Successor.successor
@@ -8,7 +8,7 @@ import static _04_06_Successor.successor
 @Unroll class _04_06_SuccessorTest extends Specification {
     /*@formatter:off*/
     def 'successor from #tree?'() {
-        given:  def root = BiNode.from(tree)
+        given:  def root = BiNodeBuilder.from(tree)
                 def nodes = collectNodes(root)
 
         when:   def vertices = nodes*.value

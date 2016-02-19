@@ -1,6 +1,6 @@
 package pap.lorinc.algos.ctci._04
 
-import pap.lorinc.algos.ctci._04.utils.BiNode
+import pap.lorinc.algos.ctci._04.utils.BiNodeBuilder
 import spock.lang.*
 
 import static pap.lorinc.algos.ctci._04._04_06_SuccessorTest.collectNodes
@@ -9,7 +9,7 @@ import static pap.lorinc.algos.ctci._04._04_10_CheckSubtree.*
 @Unroll class _04_10_CheckSubtreeTest extends Specification {
     /*@formatter:off*/
     def 'containsTree from #tree?'() {
-        when:   def roots = collectNodes(BiNode.from(tree))
+        when:   def roots = collectNodes(BiNodeBuilder.from(tree))
         then:   for (source in roots)
                     for (target in collectNodes(source)) {
                         assert contains_withHash(source, target) 
