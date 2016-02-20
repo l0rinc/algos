@@ -2,7 +2,7 @@ package pap.lorinc.algos.ctci._04
 
 import pap.lorinc.algos.ctci._04.utils.BiNode
 
-/** Determine if a large binary tree is part of a way bigger one (their matched roots should be equal)*/
+/** Determine if a large binary tree is part of a way bigger one (their matched roots should be equal) */
 class _04_10_CheckSubtree {
     /** Complexity: O(source.size + target.size) */
     static contains_withHash(BiNode source, BiNode target) {
