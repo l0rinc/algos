@@ -2,6 +2,8 @@ package pap.lorinc.algos.ctci._04.utils
 
 import groovy.transform.*
 
+import static pap.lorinc.algos.ctci._04.utils.BiNode.VisitorType.*
+
 @TupleConstructor @ToString(includePackage = false, excludes = 'parent')
 class BiNode<T> {
     T value
@@ -35,6 +37,17 @@ class BiNode<T> {
     }
     private void setValue(T value) { this.value = value }
 
+    enum VisitorType { preOrder, inOrder, postOrder }
+    private each(BiNode node = this, Map<VisitorType, Closure> closures) {
+        if (!node) return
+
+        closures[preOrder]?.call(node)
+        each(node.left, closures)
+        closures[inOrder]?.call(node)
+        each(node.right, closures)
+        closures[postOrder]?.call(node)
+    }
+
     boolean equals(o) {
         if (this.is(o)) return true
         else if (this.class != o.class) return false
@@ -48,6 +61,7 @@ class BiNode<T> {
 }
 
 abstract class BiNodeBuilder<T> {
+    static from(BiNode root) { root }
     static from(Map<T, List<T>> values, BiNode<T> node = getRoot(values)) {
         if (node?.value == null) return null
 
