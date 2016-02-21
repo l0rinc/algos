@@ -4,10 +4,10 @@ import pap.lorinc.algos.ctci._04.utils.DiGraph
 
 /** Given a DAG, sort the nodes based on their dependencies */
 class _04_07_BuildOrder {
-    /** Complexity: O(graph.nodes()) */
+    /** Complexity: O(graph.nodes) */
     static buildOrder(DiGraph graph) {
         def results = [] as LinkedHashSet
-        for (v in graph.vertices)
+        for (int v in graph.vertices)
             postOrderCollect(graph, v, results)
         results
     }

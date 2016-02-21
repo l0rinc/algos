@@ -4,7 +4,7 @@ import pap.lorinc.algos.ctci._04.utils.BiNode
 
 /** Given a BST, return all the values it could have been built from */
 class _04_09_BstSequence {
-    /** Complexity: O(tree.size!) */
+    /** Complexity: O(node.size!) */
     static sources(BiNode node, Set<BiNode> nodes = [], int size = node.size, Set results = []) {
         nodes.add(node)
 

@@ -4,9 +4,9 @@ import pap.lorinc.algos.ctci._04.utils.BiNode
 
 import static java.lang.Math.*
 
-/** Given a binary tree, check whether it's balanced */
+/** Check whether a binary tree is balanced */
 class _04_04_CheckBalanced {
-    /** Complexity: O(size) */
+    /** Complexity: O(root.size) */
     static isBalanced(BiNode root) {
         abs(height(root.left) - height(root.right)) < 2
     }

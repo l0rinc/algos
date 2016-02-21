@@ -4,7 +4,7 @@ import pap.lorinc.algos.ctci._04.utils.DiGraph
 
 /** Find out whether there's a route between two nodes in a digraph */
 class _04_01_RouteFind {
-    /** Complexity: O(graph.edgeCount()) */
+    /** Complexity: O(graph.edges) */
     static isConnected(DiGraph graph, int v1, int v2) {
         def (Set marked, queue) = [[v1], [v1] as ArrayDeque]
         while (!queue.empty) {

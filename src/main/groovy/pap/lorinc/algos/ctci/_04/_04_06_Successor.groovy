@@ -2,9 +2,9 @@ package pap.lorinc.algos.ctci._04
 
 import pap.lorinc.algos.ctci._04.utils.BiNode
 
-/** Given a binary tree node, find its in-order successor */
+/** Find the in-order successor of a node in a binary tree */
 class _04_06_Successor {
-    /** Complexity: O(tree.height) */
+    /** Complexity: O(node.height) */
     static successor(BiNode<Integer> node) {
         descendLeft(node.right) ?: ascendRight(node).parent
     }
