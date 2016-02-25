@@ -19,7 +19,7 @@ final class Quick<T extends Comparable<?>> {
 
     /** Reordering the elements randomly `guarantees` average case (i.e. `n*log(n)`) */
     def randomShuffle(List<T> elems) {
-        if (elems.size() <= 1) return;
+        if (elems.size() <= 1) return
 
         def random = new Random()
         for (int i in (1..<elems.size()).reverse())

@@ -26,6 +26,6 @@ class _01_04_PalindromePermutation {
         def groups = new BitSet()
         for (int c : string.toLowerCase())
             isLetter(c) && groups.flip(c)
-        groups.cardinality() < 2;
+        groups.cardinality() < 2
     }
 }

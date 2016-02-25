@@ -12,7 +12,7 @@ final class Selection {
     }
 
     static <T extends Comparable<?>> void sortInPlace(List<T> elems) {
-        if (elems.size() <= 1) return;
+        if (elems.size() <= 1) return
 
         elems.indices.each { int i ->
             int minIndex = i

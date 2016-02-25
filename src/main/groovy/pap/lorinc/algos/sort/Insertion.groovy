@@ -12,7 +12,7 @@ final class Insertion {
     }
 
     static <T extends Comparable<?>> void sortInPlace(List<T> elems) {
-        if (elems.size() <= 1) return;
+        if (elems.size() <= 1) return
 
         elems.indices.each { int i ->
             (i..<0).find { int j ->
