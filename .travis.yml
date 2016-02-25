@@ -3,4 +3,4 @@ language: groovy
 jdk: oraclejdk8
 
 before_install: chmod +x gradlew
-script: ./gradlew clean build --info --stacktrace
+script: ./gradlew clean build --stacktrace

@@ -19,6 +19,10 @@ apply plugin: 'idea'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 
+test {
+    maxHeapSize = '512m'
+}
+
 repositories {
     mavenCentral()
     maven { url 'http://clojars.org/repo' }
