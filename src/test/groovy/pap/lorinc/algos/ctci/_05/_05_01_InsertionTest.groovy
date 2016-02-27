@@ -1,8 +1,8 @@
-package pap.lorinc.algos.ctci._04
+package pap.lorinc.algos.ctci._05
 
 import spock.lang.*
 
-import static pap.lorinc.algos.ctci._04._05_01_Insertion.merge
+import static pap.lorinc.algos.ctci._05._05_01_Insertion.merge
 
 @Unroll class _05_01_InsertionTest extends Specification {
     /*@formatter:off*/

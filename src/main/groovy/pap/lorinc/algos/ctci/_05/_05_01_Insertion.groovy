@@ -1,4 +1,4 @@
-package pap.lorinc.algos.ctci._04
+package pap.lorinc.algos.ctci._05
 
 /** Copy a part of the content of one integer into the other */
 class _05_01_Insertion {
