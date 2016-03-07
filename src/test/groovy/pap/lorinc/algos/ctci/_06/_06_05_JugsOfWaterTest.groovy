@@ -23,8 +23,8 @@ import static pap.lorinc.algos.ctci._06._06_05_JugsOfWater.*
     def 'History of JugsOfWater: #firstJugSizeSize & #secondJugSize -> #targetSize?'() {
         expect: combinations(firstJugSizeSize, secondJugSize, targetSize) == results as Set
         where:  firstJugSizeSize | secondJugSize | targetSize || results
-                1                | 1             | 1          || [[[0,0],[0,1]],[[0,0],[1,0]]]        
-                5                | 3             | 4          || [[[0,0],[0,3],[3,0],[3,3],[5,1],[0,1],[1,0],[1,3]],[[0,0],[5,0],[2,3],[2,0],[0,2],[5,2],[4,3]]]        
+                1                | 1             | 1          || [[[0,0],[0,1]], [[0,0],[1,0]]]        
+                5                | 3             | 4          || [[[0,0],[0,3],[3,0],[3,3],[5,1],[0,1],[1,0],[1,3]], [[0,0],[5,0],[2,3],[2,0],[0,2],[5,2],[4,3]]]        
     }
     
     def 'possibilities: #firstJugSizeSize, #first, #secondJugSize, #second?'() {
