@@ -1,6 +1,6 @@
 package pap.lorinc.algos.sandbox
 
-import static pap.lorinc.algos.helpers.Numbers.bitCount
+import static pap.lorinc.algos.helpers.Numbers.bitSize
 
 /*
  * Given a function which produces a random integer in the range 1 to 5,
@@ -18,7 +18,7 @@ class RandomGenerator {
         fromBinary(bits.join())
     }
 
-    static getRandomBits(int magnitude) { (1..bitCount(magnitude)).collect { generateRandomBit() } }
+    static getRandomBits(int magnitude) { (1..bitSize(magnitude)).collect { generateRandomBit() } }
     static fromBinary(String value) { new BigInteger(value, 2).intValue() }
 
     static generateRandomBit() { // TODO generalize for (min..max) and for multiple values

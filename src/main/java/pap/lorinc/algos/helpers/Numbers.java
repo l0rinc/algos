@@ -79,11 +79,11 @@ public final class Numbers {
     }
 
     public static long random(Random random, long size) {
-        int numBits = bitCount(size);
+        int numBits = bitSize(size);
         return new BigInteger(numBits, random).longValue();
     }
 
-    public static int bitCount(long number) {
+    public static int bitSize(long number) {
         assertPositive(number);
         return Long.SIZE - Long.numberOfLeadingZeros(number);
     }

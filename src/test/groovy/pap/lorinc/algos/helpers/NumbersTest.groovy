@@ -76,7 +76,7 @@ class NumbersTest extends Specification {
     }
 
     def 'numBits?'(long number) {
-        when:   def numBits = Numbers.bitCount(number)
+        when:   def numBits = Numbers.bitSize(number)
         and:    def bits = 0
                 for (def result = number; result > 0; result >>= 1)
                     bits++
