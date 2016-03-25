@@ -10,8 +10,8 @@ import static pap.lorinc.algos.helpers.Numbers.bitSize
     def 'robotInGrid?'() {
         when:   List<Point> path = path(grid)
         then:   path.first() == Point.of(0, 0)
-                path.indices.each{ i -> assert i == 0 || path[i] in [path[i-1].right(), path[i-1].down()] }
-                path.last() == Point.of(grid.size()-1, grid[0].size()-1)
+                path.indices.each{ i -> assert i == 0 || path[i] in [path[i - 1].right(), path[i - 1].down()] }
+                path.last() == Point.of(grid.size() - 1, grid[0].size() - 1)
         
         where:  grid << grids()
     }
