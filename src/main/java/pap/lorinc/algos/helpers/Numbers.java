@@ -16,6 +16,10 @@ public final class Numbers {
         return (dividend & 1) == 0;
     }
 
+    public static boolean isOdd(long dividend) {
+        return !isEven(dividend);
+    }
+
     public static long pow(long base, byte exponent) {
         return pow(base, exponent, Long.MAX_VALUE);
     }
