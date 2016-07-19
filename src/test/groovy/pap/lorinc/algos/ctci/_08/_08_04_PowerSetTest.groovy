@@ -12,13 +12,14 @@ import static pap.lorinc.algos.ctci._08._08_04_PowerSet.subsets
         when:   def sets = subsets(values)
         then:   sets == expected
 
-        where:  values      || _
-                []          || _
-                [0]         || _
-                [0,1]       || _
-                [1,2,3]     || _
-                [1,2,3,4]   || _
-                [1,2,3,4,5] || _
+        where:  values || _
+                []     || _
+                [0]    || _
+                0..1   || _
+                0..2   || _
+                0..3   || _
+                0..4   || _
+                0..5   || _
     }
     /*@formatter:on*/
 }

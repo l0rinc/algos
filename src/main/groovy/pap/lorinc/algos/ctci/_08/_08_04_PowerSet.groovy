@@ -2,7 +2,7 @@ package pap.lorinc.algos.ctci._08
 
 /** Calculate all subsets of a set */
 class _08_04_PowerSet {
-    /** Complexity: O((elements.size()+1)!) */
+    /** Complexity: O(n*(2**n)), where n = elements.size() */
     static subsets(Set elements) {
         Set results = []
         for (int i = 1; i <= elements.size(); i++)
