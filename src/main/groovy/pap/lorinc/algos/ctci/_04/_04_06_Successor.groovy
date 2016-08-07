@@ -12,7 +12,7 @@ class _04_06_Successor {
         while (node?.left) node = node.left
         node
     }
-    private static ascendRight(BiNode node) {
+    static ascendRight(BiNode node) {
         while (node?.isRightChild) node = node.parent
         node
     }
