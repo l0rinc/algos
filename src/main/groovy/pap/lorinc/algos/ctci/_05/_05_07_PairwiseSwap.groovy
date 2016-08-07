@@ -1,6 +1,6 @@
 package pap.lorinc.algos.ctci._05
 
-/** Determine the number of different bits in two numbers */
+/** Swap the even and odd bits of an integer */
 class _05_07_PairwiseSwap {
     /** Complexity: O(1) */
     private static ODD_MASK = 0b01010101_01010101_01010101_01010101

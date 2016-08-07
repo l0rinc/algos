@@ -1,6 +1,6 @@
 package pap.lorinc.algos.ctci._05
 
-/** Determine the number of different bits in two numbers */
+/** Draw a horizontal line on a matrix of bits */
 class _05_08_DrawLine {
     /** Complexity: O(x2-x1) */
     static drawLine(byte[] screen, int byteWidth, int x1, int x2, int y) {
