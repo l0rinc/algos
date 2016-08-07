@@ -8,8 +8,11 @@ import static java.lang.Math.*
 class _04_04_CheckBalanced {
     /** Complexity: O(root.size) */
     static isBalanced(BiNode root) {
-        abs(height(root.left) - height(root.right)) < 2
+        !root || (isBalanced(root.left)
+               && areBalanced(height(root.left), height(root.right))
+               && isBalanced(root.right))
     }
+    static boolean areBalanced(int leftHeight, int rightHeight) { abs(leftHeight - rightHeight) < 2 }
     static height(BiNode root) {
         root ? 1 + max(height(root.left), height(root.right))
              : 0
